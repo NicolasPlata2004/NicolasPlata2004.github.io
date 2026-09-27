@@ -1,0 +1,998 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Portfolio de Nicolás Plata Molano, élève ingénieur en automatique et systèmes cyber-physiques à l'IMT Atlantique : aéropendule, bras robotique 2R, ThermaLink-C3, Case Erector, recherche KYMA.">
+<meta property="og:title" content="Nicolás Plata Molano — Portfolio d'ingénierie">
+<meta property="og:description" content="Portfolio de Nicolás Plata Molano, élève ingénieur en automatique et systèmes cyber-physiques à l'IMT Atlantique : aéropendule, bras robotique 2R, ThermaLink-C3, Case Erector, recherche KYMA.">
+<meta property="og:image" content="https://nicolasplata2004.github.io/assets/img/campus.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%233291B1'/%3E%3Ctext x='32' y='44' font-size='34' font-family='Arial' font-weight='700' text-anchor='middle' fill='white'%3ENP%3C/text%3E%3C/svg%3E">
+<title>Nicolás Plata Molano</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@600;700;800&family=Inter:wght@400;500;600;700&family=EB+Garamond:wght@500&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+  :root{
+    color-scheme:light;
+    --green:#567260; --slate:#6A8B92; --sage:#8A9976; --teal:#33626B;
+    --blue:#3291B1; --grey:#F4F4F4; --night:#0F1015; --paper:#FBFAF7;
+    --text:#232323; --soft:#4c4c4c; --brown:#695B3C; --rule:#8f8f8f; --red:#D9534F;
+    --display:"League Spartan","Arial Black","Segoe UI",sans-serif;
+    --body:"Inter","Segoe UI",system-ui,-apple-system,sans-serif;
+    --serif:"EB Garamond",Georgia,"Times New Roman",serif;
+    --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:#fff;color:var(--text);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  img,video{max-width:100%;display:block}
+  a{color:inherit}
+  a:focus-visible,button:focus-visible,video:focus-visible,input:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+  .wrap{max-width:1200px;margin:0 auto;padding-inline:clamp(16px,4vw,48px)}
+  h1,h2,h3,h4{text-wrap:balance}
+  .doodle{fill:none;stroke-linecap:round;stroke-linejoin:round}
+  .mono{font-family:var(--mono)}
+
+  /* ---------- titres « trait + souligné » ---------- */
+  .h-line{display:flex;align-items:center;gap:clamp(12px,2vw,22px);font-family:var(--display);font-weight:700;
+    font-size:clamp(28px,3.8vw,42px);line-height:1.1;color:#000;margin:0 0 24px}
+  .h-line::before{content:"";flex:none;width:clamp(36px,7vw,86px);height:2px;background:var(--rule)}
+  .h-line span{text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:8px}
+  .h-line.caps{text-transform:uppercase;letter-spacing:.01em}
+  .h-line.light{color:#fff}.h-line.light::before{background:#ffffff99}
+  .lead{max-width:62ch;color:#333;margin:-6px 0 0}
+  .head-row{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+  .head-row .h-line{margin:0}
+
+  /* ---------- NAV ---------- */
+  .nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:#ffffffe8;backdrop-filter:blur(8px);border-bottom:1px solid #eee}
+  .nav .wrap{display:flex;align-items:center;gap:22px;height:54px}
+  .nav .me{font-family:var(--display);font-weight:700;font-size:17px;color:#000;text-decoration:none;white-space:nowrap}
+  .nav .me span{color:var(--blue)}
+  .nav nav{display:flex;gap:18px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+  .nav nav a{font-size:14px;font-weight:500;color:#444;text-decoration:none;white-space:nowrap}
+  .nav nav a:hover{color:var(--blue)}
+  .status{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;color:var(--green);background:#56726014;border-radius:999px;padding:5px 11px;white-space:nowrap}
+  .status::before{content:"";width:8px;height:8px;border-radius:50%;background:#3ba55c;box-shadow:0 0 0 3px #3ba55c33}
+  @media (max-width:900px){ .nav nav{display:none} .status{margin-left:auto} }
+
+  /* ---------- HERO ---------- */
+  .hero{padding-block:28px 72px}
+  .hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:clamp(28px,5vw,64px);align-items:stretch}
+  .hero-left{display:flex;flex-direction:column;justify-content:space-between;gap:40px}
+  .logos{display:flex;align-items:center;gap:clamp(18px,3vw,36px);flex-wrap:wrap}
+  .logos .imt{height:54px;width:auto}
+  .logo-unal{display:flex;align-items:center;gap:8px}
+  .logo-unal img{height:50px;width:auto}
+  .unal-w{font-family:var(--serif);text-transform:uppercase;font-size:10px;line-height:1.1;color:#1d1d1d;letter-spacing:.05em;border-bottom:1px solid #1d1d1d;padding-bottom:3px}
+  .unal-w b{display:block;font-size:17px;font-weight:500;letter-spacing:.03em}
+  .hero .doodle{width:128px;height:auto;stroke:var(--blue);stroke-width:5;margin:0 0 6px 34%}
+  .hero h1{font-family:var(--display);font-weight:700;font-size:clamp(50px,7.4vw,88px);line-height:.98;letter-spacing:-.015em;color:#000;margin:0}
+  .hero .role{font-weight:700;font-size:clamp(15px,1.6vw,18px);color:#111;margin:18px 0 2px}
+  .hero .tagline{font-size:clamp(15px,1.6vw,18px);color:#222;margin:0}
+  .hero-photo{position:relative;padding-left:24px;width:100%;max-width:450px;justify-self:end;align-self:start}
+  .hero-photo::before{content:"";position:absolute;left:0;top:0;bottom:0;width:64%;background:var(--green);border-radius:20px}
+  .hero-photo img{position:relative;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:28% 40%;border-radius:20px}
+  .hero-photo .tagcard{position:absolute;right:-10px;bottom:22px;background:#fff;border-radius:12px;padding:10px 14px;box-shadow:0 8px 24px #0f101529;
+    font-size:12.5px;line-height:1.35;color:#222}
+  .hero-photo .tagcard b{display:block;font-family:var(--display);font-size:16px;color:#000}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+  .pill{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;font-size:14px;font-weight:600;text-decoration:none;border:1.5px solid #111;color:#111;background:#fff}
+  .pill.fill{background:var(--blue);border-color:var(--blue);color:#fff}
+  .pill svg{width:16px;height:16px}
+
+  /* ---------- CHIFFRES ---------- */
+  .numbers{border-block:1px solid #e8e8e8;background:var(--paper)}
+  .numbers .wrap{display:grid;grid-template-columns:repeat(4,1fr);padding-block:22px}
+  .num{padding-inline:18px;border-left:1px solid #e3e3e3}
+  .num:first-child{border-left:none;padding-left:0}
+  .num b{display:block;font-family:var(--display);font-size:clamp(28px,3.4vw,38px);line-height:1;color:var(--teal)}
+  .num span{font-size:13.5px;color:#444;line-height:1.35;display:block;margin-top:6px}
+
+  /* ---------- À PROPOS ---------- */
+  .about{display:grid;grid-template-columns:minmax(260px,37%) 1fr;gap:clamp(28px,5vw,72px);padding-block:72px 84px}
+  .about-photo{margin:0;min-height:560px}
+  .about-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+  .about-text{padding-right:clamp(16px,4vw,56px);padding-top:6px;max-width:700px}
+  .about-text p{text-align:justify;hyphens:auto;margin:0 0 16px;color:#222;max-width:62ch}
+  .about-text .doodle{width:78px;stroke:var(--blue);stroke-width:4.5;margin:22px 0 8px 58%}
+
+  /* ---------- BOGOTÁ → NANTES ---------- */
+  .route{position:relative;display:grid;grid-template-columns:1fr 1fr;min-height:420px;background:#0f1015}
+  .route figure{position:relative;margin:0;overflow:hidden}
+  .route figure img{width:100%;height:100%;object-fit:cover;filter:saturate(1.05)}
+  .route figure::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#0f101500 40%,#0f1015cc)}
+  .route .place{position:absolute;left:clamp(16px,3vw,36px);bottom:clamp(16px,3vw,30px);z-index:2;color:#fff}
+  .route .place b{display:block;font-family:var(--display);font-size:clamp(28px,4vw,44px);line-height:1}
+  .route .place span{font-size:14px;opacity:.92}
+  .route .place .mono{display:block;font-size:12px;opacity:.8;margin-top:4px}
+  .route figure:last-child .place{left:auto;right:clamp(16px,3vw,36px);text-align:right}
+  .route .arc{position:absolute;inset:0;z-index:3;pointer-events:none;width:100%;height:100%}
+  .route .badge{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:4;background:#fff;color:#000;border-radius:999px;
+    padding:12px 22px;text-align:center;box-shadow:0 10px 30px #0006}
+  .route .badge b{display:block;font-family:var(--display);font-size:26px;line-height:1}
+  .route .badge span{font-size:12px;color:#444}
+  .route .credit{position:absolute;right:10px;top:8px;z-index:4;font-size:10.5px;color:#ffffffb3}
+  .route .credit a{color:#ffffffd9}
+
+  /* ---------- DOMAINES ---------- */
+  .domaines{background:var(--grey);padding-block:64px 76px}
+  .dom-grid{display:grid;grid-template-columns:repeat(4,1fr);margin-top:40px}
+  .dom{display:flex;flex-direction:column;align-items:center;text-align:center}
+  .dom .icon{width:112px;height:112px;fill:none;stroke:#111;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;margin-bottom:28px}
+  .dom .seg{height:13px;width:100%;margin-bottom:22px}
+  .dom:first-child .seg{border-radius:8px 0 0 8px}
+  .dom:last-child .seg{border-radius:0 8px 8px 0}
+  .dom h3{font-family:var(--display);font-weight:700;font-size:19px;line-height:1.22;color:#111;margin:0;max-width:15ch}
+
+  /* ---------- PROJETS ---------- */
+  .projets{padding-block:24px 8px}
+  .pgroup{display:grid;grid-template-columns:58px 1fr;gap:clamp(18px,3vw,38px)}
+  .rail{border-radius:29px 29px 0 0;display:flex;align-items:center;justify-content:center;padding-block:30px}
+  .rail span{writing-mode:vertical-rl;transform:rotate(180deg);color:#fff;font-weight:700;letter-spacing:.3em;font-size:15px;white-space:nowrap}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.4vw,34px);padding-block:44px 64px}
+  .card{display:flex;flex-direction:column;min-width:0}
+  .card .bar{height:11px}
+  .card .media{aspect-ratio:16/10;background:#eceeee;overflow:hidden;position:relative}
+  .card .media img,.card .media video{width:100%;height:100%;object-fit:cover}
+  .card .live{position:absolute;left:10px;top:10px;background:#0f1015cc;color:#fff;font-size:11px;font-weight:600;letter-spacing:.06em;
+    text-transform:uppercase;padding:4px 8px;border-radius:6px;display:flex;align-items:center;gap:6px}
+  .card .live::before{content:"";width:7px;height:7px;border-radius:50%;background:#e8584f}
+  .card h4{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.2;color:#000;margin:18px 0 8px}
+  .card p{font-size:14.5px;line-height:1.55;color:#262626;margin:0 0 14px}
+  .card .tags{margin-top:auto;text-align:center;color:var(--blue);font-weight:600;font-size:13.5px;line-height:1.5}
+  .card .gh{align-self:center;margin-top:12px;font-size:13px;font-weight:600;color:#111;text-decoration:none;border-bottom:2px solid var(--blue);padding-bottom:1px}
+  .card .gh:hover{color:var(--blue)}
+
+  /* ---------- KYMA ---------- */
+  .kyma{background:var(--paper);border-block:1px solid #ecebe6;padding-block:72px}
+  .kgrid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(28px,5vw,64px);align-items:center}
+  .kgrid .cell{background:#fff;border-radius:18px;padding:18px;box-shadow:0 1px 0 #eee,0 14px 40px #0f10150d}
+  .kgrid .cell svg{width:100%;height:auto}
+  .kyma .eyebrow{font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--green)}
+  .kyma h3{font-family:var(--display);font-weight:700;font-size:clamp(26px,3.2vw,34px);line-height:1.12;color:#000;margin:8px 0 14px}
+  .kyma p{margin:0 0 14px;color:#262626;max-width:60ch}
+  .kyma ul{margin:6px 0 18px;padding-left:18px;color:#262626}
+  .kyma li{margin-bottom:6px}
+  .legend{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:#333;margin-top:10px;justify-content:center}
+  .legend i{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+
+  /* ---------- PID ---------- */
+  .pid{padding-block:76px}
+  .pid-grid{display:grid;grid-template-columns:1.45fr 1fr;gap:clamp(24px,4vw,48px);margin-top:34px;align-items:start}
+  .scope{background:#0f1a1d;border-radius:16px;padding:14px 14px 10px;box-shadow:0 14px 40px #0f10151f}
+  .scope canvas{width:100%;height:auto;display:block;aspect-ratio:16/9}
+  .scope .cap{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:#9fb3b8;font-family:var(--mono);font-size:12px;padding:8px 4px 0}
+  .ctrl{display:flex;flex-direction:column;gap:18px}
+  .slider label{display:flex;justify-content:space-between;font-weight:600;font-size:14.5px;color:#111}
+  .slider label output{font-family:var(--mono);color:var(--teal)}
+  .slider input{width:100%;accent-color:var(--teal)}
+  .presets{display:flex;flex-wrap:wrap;gap:8px}
+  .presets button{font-family:var(--body);font-size:13px;font-weight:600;border:1.5px solid #cfd6d7;background:#fff;color:#222;border-radius:999px;padding:6px 12px;cursor:pointer}
+  .presets button:hover{border-color:var(--teal);color:var(--teal)}
+  .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  .metric{background:var(--grey);border-radius:12px;padding:12px}
+  .metric b{display:block;font-family:var(--display);font-size:24px;line-height:1.1;color:#000}
+  .metric span{font-size:12px;color:#555}
+  .metric.bad b{color:var(--red)}
+  .pid .note{font-size:13.5px;color:#444;margin:0}
+  .pid .note code{font-family:var(--mono);font-size:12.5px;background:var(--grey);padding:1px 6px;border-radius:5px}
+
+  /* ---------- EN ACTION ---------- */
+  .action{padding-block:56px 80px;background:var(--grey)}
+  .vgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(18px,2.6vw,34px);margin-top:36px}
+  .vcard video{width:100%;aspect-ratio:16/9;background:#000;border-radius:14px}
+  .vcard h4{font-family:var(--display);font-weight:700;font-size:19px;line-height:1.2;color:#000;margin:16px 0 6px}
+  .vcard p{font-size:14px;color:#333;margin:0}
+  .action .doodle{width:90px;stroke:var(--green);stroke-width:4.5}
+
+  /* ---------- PARCOURS ---------- */
+  .parcours{padding-block:76px 40px}
+  .tl{list-style:none;margin:40px 0 0;padding:0;display:grid;grid-template-columns:repeat(6,1fr);position:relative}
+  .tl::before{content:"";position:absolute;left:0;right:0;top:15px;height:3px;background:linear-gradient(90deg,var(--green),var(--slate),var(--sage),var(--teal),var(--blue))}
+  .tl li{position:relative;padding:40px 14px 0 0}
+  .tl li::before{content:"";position:absolute;left:0;top:6px;width:21px;height:21px;border-radius:50%;background:#fff;border:4px solid var(--teal)}
+  .tl li.next::before{border-color:var(--blue);background:var(--blue);box-shadow:0 0 0 6px #3291b133}
+  .tl .yr{font-family:var(--display);font-weight:700;font-size:24px;color:#000;line-height:1}
+  .tl h4{font-size:14.5px;font-weight:700;color:#111;margin:8px 0 4px;line-height:1.3}
+  .tl p{font-size:13px;color:#444;margin:0;line-height:1.45}
+
+  /* ---------- OUTILS ---------- */
+  .outils{padding-block:56px 76px}
+  .outils .doodle{width:74px;stroke:var(--green);stroke-width:4.5}
+  .tgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:36px}
+  .tbox{border:1px solid #e6e6e6;border-radius:16px;padding:20px 22px;background:#fff}
+  .tbox.wide{grid-column:1/-1}
+  .tbox h3{font-family:var(--display);font-weight:700;font-size:18px;color:#111;margin:0 0 14px;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:6px}
+  .badges{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+  .badges img{height:28px;width:auto}
+  .logorow{display:flex;flex-wrap:wrap;gap:18px 26px;align-items:center;margin-top:12px}
+  .logorow img{height:64px;width:auto;object-fit:contain}
+  .logorow img.xl{height:58px}
+  .logorow img.band{height:auto;width:100%;max-width:760px}
+
+  /* ---------- FORMATION ---------- */
+  .formation{padding-block:40px 80px}
+  .h-right{display:flex;align-items:center;justify-content:flex-end;gap:18px;margin-bottom:34px}
+  .h-right .doodle{width:78px;stroke:var(--teal);stroke-width:4.5}
+  .h-right h2{font-family:var(--display);font-weight:700;font-size:clamp(30px,4vw,44px);color:#000;margin:0}
+  .fgrid{display:grid;grid-template-columns:1.55fr 1fr;gap:clamp(28px,5vw,64px);align-items:end}
+  .school{display:grid;grid-template-columns:200px 7px 1fr;gap:24px;align-items:center;margin-bottom:34px}
+  .school:last-child{margin-bottom:0}
+  .school .logo{display:flex;align-items:center;justify-content:center;gap:10px}
+  .school .logo .imt{height:62px;width:auto}
+  .school .vbar{align-self:stretch;border-radius:4px;min-height:96px}
+  .school h4{font-family:var(--display);font-weight:700;font-size:19px;line-height:1.2;color:#000;margin:0 0 6px}
+  .school p{margin:0;font-size:14px;color:#333;line-height:1.5}
+  .langs{display:flex;flex-direction:column;gap:16px;align-items:flex-end}
+  .lang{display:flex;align-items:center;gap:14px;color:var(--brown);font-size:15.5px;text-align:right}
+  .pin{width:32px;height:40px;flex:none}
+
+  /* ---------- GALERIE ---------- */
+  .galerie{padding-block:8px 88px}
+  .ggrid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,3vw,34px)}
+  .ggrid figure{margin:0}
+  .ggrid img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:4px}
+  .ggrid figcaption{font-size:13.5px;text-align:center;color:#222;margin-top:12px;line-height:1.45}
+  .galerie .doodle{stroke:var(--green);stroke-width:4;width:70px;margin:18px auto 0;display:block}
+
+  /* ---------- CONTACT ---------- */
+  .contact{background:var(--blue);color:#fff;padding-block:52px 76px}
+  .c-logos{display:flex;align-items:center;gap:30px;flex-wrap:wrap;margin-bottom:60px}
+  .c-logos .imt{height:52px;width:auto}
+  .c-logos .unal-w{color:#fff;border-color:#fff}
+  .c-grid{display:grid;grid-template-columns:1fr 5px 1fr;gap:clamp(24px,4vw,48px);align-items:center}
+  .c-title{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+  .c-title h2{font-family:var(--display);font-weight:700;font-size:clamp(42px,6vw,68px);line-height:1.02;margin:0;color:#fff}
+  .c-title .doodle{width:96px;stroke:#fff;stroke-width:4.5}
+  .c-sep{background:#fff;align-self:stretch;border-radius:3px;min-height:220px}
+  .c-info p{margin:0 0 3px;font-size:16px;color:#fff}
+  .c-info .mail{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .copy{background:#ffffff26;color:#fff;border:1px solid #ffffff80;border-radius:7px;padding:3px 9px;font-size:12px;font-family:var(--body);cursor:pointer}
+  .copy:hover{background:#fff;color:var(--blue)}
+  .c-links{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 18px}
+  .c-links a{display:inline-flex;align-items:center;gap:8px;color:#fff;border:1.5px solid #ffffffb3;border-radius:999px;padding:7px 14px;font-size:14px;font-weight:600;text-decoration:none}
+  .c-links a:hover{background:#fff;color:var(--blue)}
+  .c-links svg{width:16px;height:16px}
+  .c-info .avail{font-weight:700;font-size:16px;line-height:1.45;max-width:44ch}
+  footer{background:var(--night);color:#cfcfcf;font-size:12px}
+  footer .wrap{display:flex;justify-content:space-between;gap:8px 20px;flex-wrap:wrap;padding-block:14px}
+  footer a{color:#e8e8e8}
+
+  /* ---------- responsive ---------- */
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr}
+    .hero-photo{justify-self:start;max-width:420px}
+    .hero .doodle{margin-left:0}
+    .numbers .wrap{grid-template-columns:repeat(2,1fr);row-gap:18px}
+    .num:nth-child(3){border-left:none;padding-left:0}
+    .about{grid-template-columns:1fr;padding-top:0}
+    .about-photo{min-height:0;max-height:460px;overflow:hidden}
+    .about-text{padding-inline:clamp(16px,4vw,48px)}
+    .route{grid-template-columns:1fr;min-height:0}
+    .route figure{aspect-ratio:16/10}
+    .route .badge{top:50%}
+    .cards{grid-template-columns:repeat(2,1fr)}
+    .kgrid,.pid-grid{grid-template-columns:1fr}
+    .tl{grid-template-columns:repeat(3,1fr);row-gap:28px}
+    .tl::before{display:none}
+    .tgrid{grid-template-columns:1fr}
+    .fgrid{grid-template-columns:1fr}
+    .langs{align-items:flex-start}
+    .lang{flex-direction:row-reverse;text-align:left}
+    .c-grid{grid-template-columns:1fr}
+    .c-sep{min-height:4px;height:4px}
+  }
+  @media (max-width:640px){
+    .dom-grid{grid-template-columns:repeat(2,1fr);row-gap:44px}
+    .dom .seg{border-radius:8px!important;width:78%}
+    .pgroup{grid-template-columns:1fr;gap:0}
+    .rail{border-radius:14px;padding:12px 18px;justify-content:flex-start;margin-top:24px}
+    .rail span{writing-mode:horizontal-tb;transform:none;letter-spacing:.18em}
+    .cards{grid-template-columns:1fr;padding-block:24px 36px}
+    .vgrid{grid-template-columns:1fr}
+    .ggrid{grid-template-columns:1fr}
+    .tl{grid-template-columns:1fr 1fr}
+    .metrics{grid-template-columns:1fr 1fr 1fr}
+    .school{grid-template-columns:1fr;gap:12px}
+    .school .vbar{min-height:6px;height:6px;width:64px}
+    .school .logo{justify-content:flex-start}
+    .head-row .doodle{display:none}
+    .logorow img{height:48px}
+  }
+  @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto} }
+</style>
+</head>
+<body>
+<div lang="fr">
+
+<!-- ======================= NAV ======================= -->
+<header class="nav">
+  <div class="wrap">
+    <a class="me" href="#top">Nicolás <span>Plata</span></a>
+    <nav aria-label="Sections">
+      <a href="#apropos">À propos</a>
+      <a href="#projets">Projets</a>
+      <a href="#recherche">Recherche</a>
+      <a href="#pid">Réglez le PID</a>
+      <a href="#videos">Vidéos</a>
+      <a href="#outils">Outils</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <span class="status">Stage 2A · avril 2027</span>
+  </div>
+</header>
+
+<!-- ======================= HERO ======================= -->
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div class="hero-left">
+      <div class="logos">
+        <img class="imt" src="assets/logo/imt_atlantique_oficial.svg" alt="IMT Atlantique">
+        <div class="logo-unal">
+          <img src="assets/logo/unal_escudo.png" alt="">
+          <div class="unal-w">Universidad<b>Nacional</b>de Colombia</div>
+        </div>
+      </div>
+      <div>
+        <svg class="doodle" viewBox="0 0 130 84" aria-hidden="true">
+          <path d="M60 8 l3 11 M77 5 l-3 11 M92 12 l-8 9"/>
+          <path d="M8 66 C 20 36, 44 30, 50 48 C 55 64, 32 70, 36 50 C 40 30, 76 22, 110 30"/>
+          <path d="M96 18 L 112 30 L 97 43"/>
+        </svg>
+        <h1>Nicolás<br>Plata Molano</h1>
+        <p class="role">Élève ingénieur en Automatique &amp; Systèmes Cyber-physiques</p>
+        <p class="tagline">Contrôle · Robotique · Systèmes embarqués · Automatisation</p>
+        <div class="hero-cta">
+          <a class="pill fill" href="#contact">Me contacter</a>
+          <a class="pill" href="assets/cv/CV_Nicolas_Plata_Molano_FR.pdf" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>
+            CV (PDF)
+          </a>
+          <a class="pill" href="https://github.com/NicolasPlata2004" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="assets/img/campus.jpg" alt="Nicolás devant l'entrée de l'IMT Atlantique à Nantes, avec sa carte d'étudiant">
+      <div class="tagcard"><b>Double diplôme</b>Universidad Nacional de Colombia<br>→ IMT Atlantique, Nantes</div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= CHIFFRES ======================= -->
+<section class="numbers" aria-label="En chiffres">
+  <div class="wrap">
+    <div class="num"><b>5ᵉ</b><span>de ma promotion en mécatronique (moyenne 4,4/5)</span></div>
+    <div class="num"><b>4</b><span>lois de commande testées sur un banc réel (PID, H∞, MRAC, SMC)</span></div>
+    <div class="num"><b>R² 0,943</b><span>modèle non linéaire identifié et validé en boucle ouverte</span></div>
+    <div class="num"><b>≈ 29 %</b><span>d'économie estimée sur la climatisation avec ThermaLink-C3</span></div>
+  </div>
+</section>
+
+<!-- ======================= À PROPOS ======================= -->
+<section class="about" id="apropos">
+  <figure class="about-photo">
+    <img src="assets/img/about_aeropendulo.jpg" alt="Banc de l'aéropendule : bras en acrylique, hélice, pont en H L298N et Arduino">
+  </figure>
+  <div class="about-text">
+    <h2 class="h-line"><span>À propos de moi</span></h2>
+    <p>Élève ingénieur en double diplôme entre l'Universidad Nacional de Colombia, où j'ai suivi le cursus d'ingénierie mécatronique, et l'IMT Atlantique, où je me spécialise dans la thématique <strong>Automatique et Systèmes Cyber-physiques</strong> sur le campus de Nantes. Je m'intéresse au contrôle-commande, à la robotique, aux systèmes embarqués et à l'automatisation industrielle.</p>
+    <p>J'aime les projets où l'on passe du modèle au montage réel : identifier une plante, concevoir la loi de commande, la programmer sur un microcontrôleur ou un automate, puis vérifier sur le banc que le système se comporte comme prévu. En parallèle, je fais de la recherche sur des capteurs piézoélectriques au sein du groupe KYMA.</p>
+    <svg class="doodle" viewBox="0 0 90 60" aria-hidden="true">
+      <path d="M6 44 C 12 18, 30 14, 28 32 C 26 48, 12 42, 20 26 C 28 10, 50 14, 48 34 C 46 50, 32 44, 40 28 C 48 12, 72 16, 70 36 C 68 50, 58 46, 62 34 L 84 20"/>
+    </svg>
+    <h2 class="h-line"><span>Ce qui m'anime</span></h2>
+    <p>Comprendre pourquoi un système réagit comme il le fait, construire la solution qui le fait marcher pour de vrai, puis l'expliquer simplement. C'est pour cela que je réalise des vidéos pédagogiques animées sur le contrôle et l'électronique, et que j'ai lancé le blog de vulgarisation « El Éter ».</p>
+  </div>
+</section>
+
+<!-- ======================= BOGOTÁ → NANTES ======================= -->
+<section class="route" aria-label="De Bogotá à Nantes">
+  <figure>
+    <img src="assets/img/campus_unal.jpg" alt="Campus de l'Universidad Nacional de Colombia à Bogotá, vu d'en haut" loading="lazy">
+    <div class="place"><b>Bogotá</b><span>Universidad Nacional de Colombia · 2 600 m d'altitude</span><span class="mono">4,64° N · 74,08° O</span></div>
+  </figure>
+  <figure>
+    <img src="assets/img/campus_nantes.jpg" alt="Vue aérienne de Nantes" loading="lazy">
+    <div class="place"><b>Nantes</b><span>IMT Atlantique · depuis août 2026</span><span class="mono">47,22° N · 1,55° O</span></div>
+  </figure>
+  <svg class="arc" viewBox="0 0 1000 420" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M190 330 C 330 60, 670 60, 810 330" fill="none" stroke="#fff" stroke-width="3" stroke-dasharray="2 12" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+  </svg>
+  <div class="badge"><b>8 315 km</b><span>de l'atelier de mécatronique au labo d'automatique</span></div>
+  <div class="credit">Photos : <a href="https://commons.wikimedia.org/wiki/File:Bog_-_Vista_UNAL.JPG" target="_blank" rel="noopener">F. Restrepo Acosta, CC BY-SA 3.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Nantes_aerial_skyline_view.jpg" target="_blank" rel="noopener">ahtcx, CC0</a></div>
+</section>
+
+<!-- ======================= DOMAINES ======================= -->
+<section class="domaines" id="competences">
+  <div class="wrap">
+    <h2 class="h-line caps"><span>Domaines de compétence</span></h2>
+    <div class="dom-grid">
+      <div class="dom">
+        <svg class="icon" viewBox="0 0 100 100" aria-hidden="true">
+          <rect x="10" y="14" width="80" height="58" rx="6"/>
+          <path d="M18 40 H82" stroke-dasharray="3 6"/>
+          <path d="M18 62 H26 C30 62 32 28 40 28 C48 28 48 44 55 42 C62 40 64 39 82 40"/>
+          <path d="M40 72 L35 86 M60 72 L65 86 M26 86 H74"/>
+        </svg>
+        <div class="seg" style="background:var(--green)"></div>
+        <h3>Automatique &amp; contrôle</h3>
+      </div>
+      <div class="dom">
+        <svg class="icon" viewBox="0 0 100 100" aria-hidden="true">
+          <path d="M16 88 H60"/>
+          <rect x="26" y="74" width="24" height="14" rx="3"/>
+          <circle cx="38" cy="68" r="6"/>
+          <path d="M42 63 L62 36"/>
+          <circle cx="65" cy="32" r="6"/>
+          <path d="M70 35 L84 58"/>
+          <path d="M84 58 L88 68"/>
+          <path d="M70 80 C 76 70, 90 72, 86 80 C 94 84, 86 94, 80 88 C 76 96, 64 90, 70 80 Z" stroke-dasharray="3 4"/>
+        </svg>
+        <div class="seg" style="background:var(--slate)"></div>
+        <h3>Robotique &amp; mécatronique</h3>
+      </div>
+      <div class="dom">
+        <svg class="icon" viewBox="0 0 100 100" aria-hidden="true">
+          <path d="M34 22 Q50 8 66 22 M40 28 Q50 20 60 28"/>
+          <circle cx="50" cy="33" r="1.6"/>
+          <rect x="28" y="42" width="44" height="44" rx="5"/>
+          <rect x="40" y="54" width="20" height="20" rx="2"/>
+          <path d="M36 42 V36 M46 42 V36 M54 42 V36 M64 42 V36 M36 86 V92 M46 86 V92 M54 86 V92 M64 86 V92 M28 50 H22 M28 60 H22 M28 70 H22 M28 80 H22 M72 50 H78 M72 60 H78 M72 70 H78 M72 80 H78"/>
+        </svg>
+        <div class="seg" style="background:var(--sage)"></div>
+        <h3>Systèmes embarqués, capteurs &amp; IoT</h3>
+      </div>
+      <div class="dom">
+        <svg class="icon" viewBox="0 0 100 100" aria-hidden="true">
+          <path d="M10 86 V52 L28 62 V52 L46 62 V52 L64 62 V30 H78 V86 Z"/>
+          <path d="M68 30 V16 H74 V30"/>
+          <path d="M18 72 H26 M34 72 H42 M50 72 H58"/>
+          <circle cx="71" cy="72" r="6"/>
+          <path d="M71 62 V64 M71 80 V82 M61 72 H63 M79 72 H81"/>
+          <path d="M6 92 H94"/>
+        </svg>
+        <div class="seg" style="background:var(--teal)"></div>
+        <h3>Automatisation industrielle</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= PROJETS ======================= -->
+<section class="projets" id="projets">
+  <div class="wrap">
+
+    <div class="pgroup">
+      <div class="rail" style="background:var(--green)"><span>Automatique</span></div>
+      <div class="cards">
+        <article class="card">
+          <div class="bar" style="background:var(--green)"></div>
+          <div class="media">
+            <video data-auto muted loop playsinline preload="metadata" poster="assets/img/aero_pid_poster.jpg" src="assets/vid/aero_pid.mp4" aria-label="Aéropendule stabilisé par PID, avec les courbes d'angle et de PWM"></video>
+            <span class="live">Banc réel</span>
+          </div>
+          <h4>Aéropendule : quatre lois de commande</h4>
+          <p>Identification expérimentale d'un pendule actionné par hélice (R² = 0,943 en validation), puis PID, H∞, MRAC et mode glissant testés sur la maquette réelle.</p>
+          <div class="tags">Identification · PID · H∞ · MRAC · SMC</div>
+          <a class="gh" href="https://github.com/NicolasPlata2004/MATLAB_Pendulo" target="_blank" rel="noopener">Voir le code →</a>
+        </article>
+        <article class="card">
+          <div class="bar" style="background:var(--green)"></div>
+          <div class="media">
+            <video data-auto muted loop playsinline preload="metadata" poster="assets/img/aero_hinf_poster.jpg" src="assets/vid/aero_hinf.mp4" aria-label="Aéropendule piloté par le correcteur H infini"></video>
+            <span class="live">Banc réel</span>
+          </div>
+          <h4>Commande robuste H∞</h4>
+          <p>Synthèse par sensibilité mixte (S, T, KS), déployée sur Arduino depuis Simulink, avec une étude de robustesse face au retard de l'actionneur, à l'échantillonnage et aux erreurs de paramètres.</p>
+          <div class="tags">H∞ · Simulink · Robustesse · Arduino</div>
+        </article>
+        <article class="card">
+          <div class="bar" style="background:var(--green)"></div>
+          <div class="media">
+            <video data-auto muted loop playsinline preload="metadata" poster="assets/img/levitador_poster.jpg" src="assets/vid/levitador.mp4" aria-label="Aimant en lévitation au-dessus du lévitateur ; poussé du doigt, il revient seul"></video>
+            <span class="live">Il flotte</span>
+          </div>
+          <h4>Lévitateur magnétique</h4>
+          <p>Un aimant qui flotte sans microcontrôleur : rétro-ingénierie complète du circuit analogique (capteurs Hall, correcteur PD, étage push-pull), expliquée en une série de 9 vidéos animées.</p>
+          <div class="tags">Rétro-ingénierie · Effet Hall · Correcteur PD · Électronique</div>
+          <a class="gh" href="https://github.com/NicolasPlata2004/Magnetic-Levitator" target="_blank" rel="noopener">Voir le code →</a>
+        </article>
+      </div>
+    </div>
+
+    <div class="pgroup">
+      <div class="rail" style="background:var(--slate)"><span>Robotique &amp; mécatronique</span></div>
+      <div class="cards">
+        <article class="card">
+          <div class="bar" style="background:var(--slate)"></div>
+          <div class="media">
+            <video data-auto muted loop playsinline preload="metadata" poster="assets/img/adaniss_despiece_poster.jpg" src="assets/vid/adaniss_despiece.mp4" aria-label="Vue éclatée animée du bras ADANISS 2R"></video>
+          </div>
+          <h4>Bras robotique 2R : ADANISS</h4>
+          <p>Bras plan à deux degrés de liberté qui dessine un trèfle : trajectoire polaire paramétrique, cinématique inverse, PID sur ESP32 et carte électronique conçue par l'équipe.</p>
+          <div class="tags">Cinématique inverse · ESP32 · PID · Fusion 360</div>
+          <a class="gh" href="https://github.com/NicolasPlata2004/ADANISS-2R" target="_blank" rel="noopener">Voir le code →</a>
+        </article>
+        <article class="card">
+          <div class="bar" style="background:var(--slate)"></div>
+          <div class="media"><img src="assets/img/card_adaniss_robot.jpg" alt="Le bras ADANISS 2R assemblé sur son plan de travail" loading="lazy"></div>
+          <h4>Suivi de trajectoire en trèfle</h4>
+          <p>Profils de mouvement quintiques pour raccorder l'approche et le cycle sans à-coups, et visualisation en temps réel sous MATLAB à 60 Hz par liaison série.</p>
+          <div class="tags">Trajectoire · MATLAB · Temps réel · Liaison série</div>
+        </article>
+        <article class="card">
+          <div class="bar" style="background:var(--slate)"></div>
+          <div class="media"><img src="assets/img/card_adaniss_caract.jpg" alt="Gain en fonction du PWM pour l'identification des moteurs" loading="lazy"></div>
+          <h4>Identification des moteurs</h4>
+          <p>Chaque articulation identifiée par essais en impulsion (R² > 0,99) : gain, constante de temps et zone morte, puis réglage des correcteurs sur le robot.</p>
+          <div class="tags">Identification · K/s(τs+1) · Zone morte · Données</div>
+        </article>
+      </div>
+    </div>
+
+    <div class="pgroup">
+      <div class="rail" style="background:var(--sage)"><span>Embarqué &amp; IoT</span></div>
+      <div class="cards">
+        <article class="card">
+          <div class="bar" style="background:var(--sage)"></div>
+          <div class="media">
+            <video data-auto muted loop playsinline preload="metadata" poster="assets/img/thermalink_poster.jpg" src="assets/vid/thermalink.mp4" aria-label="ThermaLink allume la climatisation quand une personne entre"></video>
+            <span class="live">Essai réel</span>
+          </div>
+          <h4>ThermaLink-C3</h4>
+          <p>Superviseur non invasif pour climatiseur sur ESP32-C3 : présence, température, clonage des trames infrarouges, machine à états, panneau web et <strong>MQTT avec intégration Home Assistant</strong>. Économie estimée : environ 29 %.</p>
+          <div class="tags">ESP32-C3 · MQTT · Home Assistant · Infrarouge</div>
+        </article>
+        <article class="card">
+          <div class="bar" style="background:var(--sage)"></div>
+          <div class="media">
+            <video data-auto muted loop playsinline preload="metadata" poster="assets/img/tl_pcb_poster.jpg" src="assets/vid/tl_pcb.mp4" aria-label="Rendu 3D de la carte ThermaLink"></video>
+          </div>
+          <h4>Carte électronique et boîtier</h4>
+          <p>PCB deux couches conçu sous KiCad et boîtier modélisé sous Fusion 360, du schéma au prototype assemblé.</p>
+          <div class="tags">KiCad · PCB · Fusion 360 · Impression 3D</div>
+        </article>
+        <article class="card">
+          <div class="bar" style="background:var(--sage)"></div>
+          <div class="media"><img src="assets/img/card_nexergy.jpg" alt="Chaîne de données à valider, du compteur jusqu'au cloud" loading="lazy"></div>
+          <h4>Passerelle IoT industrielle</h4>
+          <p>Commande d'entreprise en cours avec une startup incubée à l'IMT Atlantique : déployer et qualifier une passerelle multiprotocole (MQTT, Modbus, OPC-UA, S7, EtherNet/IP) jusqu'au cloud.</p>
+          <div class="tags">OPC-UA · Modbus · MQTT · Edge · En cours</div>
+        </article>
+      </div>
+    </div>
+
+    <div class="pgroup">
+      <div class="rail" style="background:var(--teal)"><span>Automatisation industrielle</span></div>
+      <div class="cards">
+        <article class="card">
+          <div class="bar" style="background:var(--teal)"></div>
+          <div class="media">
+            <video data-auto muted loop playsinline preload="metadata" poster="assets/img/case_erector_poster.jpg" src="assets/vid/case_erector.mp4" aria-label="Formeuse de caisses Case Erector en simulation"></video>
+          </div>
+          <h4>Case Erector : formeuse de caisses</h4>
+          <p>Commande d'une machine à trois axes (20 caisses par minute) programmée en ladder sur un automate Allen-Bradley émulé, validée sans machine réelle.</p>
+          <div class="tags">Studio 5000 · Ladder · Motion · 3 axes</div>
+          <a class="gh" href="https://github.com/NicolasPlata2004/Case-Erector-Motion-control-of-a-three-axis-box-former-with-a-digital-twin" target="_blank" rel="noopener">Voir le code →</a>
+        </article>
+        <article class="card">
+          <div class="bar" style="background:var(--teal)"></div>
+          <div class="media"><img src="assets/img/card_ce_trends.jpg" alt="Trends de Studio 5000 : vitesses des trois axes, un cycle toutes les 3 s" loading="lazy"></div>
+          <h4>Mesure du cycle dans les Trends</h4>
+          <p>Vitesses relevées dans les Trends de Studio 5000 : un cycle toutes les 3 s, et une compensation de la latence de communication qui faisait perdre un cycle à 20 caisses par minute.</p>
+          <div class="tags">Trends · Profils de mouvement · Latence</div>
+        </article>
+        <article class="card">
+          <div class="bar" style="background:var(--teal)"></div>
+          <div class="media">
+            <video data-auto muted loop playsinline preload="metadata" poster="assets/img/gemelo_poster.jpg" src="assets/vid/gemelo.mp4" aria-label="Studio 5000 à gauche et jumeau numérique 3D à droite"></video>
+          </div>
+          <h4>Jumeau numérique</h4>
+          <p>L'automate émulé pilote par OPC DA un modèle 3D sous Siemens NX : la machine virtuelle réagit aux sorties du programme en temps réel.</p>
+          <div class="tags">OPC DA · Siemens NX · Émulation · Validation</div>
+        </article>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ======================= RECHERCHE KYMA ======================= -->
+<section class="kyma" id="recherche">
+  <div class="wrap">
+    <h2 class="h-line"><span>Recherche</span></h2>
+    <div class="kgrid">
+      <div>
+        <div class="cell">
+          <svg viewBox="0 0 420 340" role="img" aria-label="Maille pérovskite du titanate de baryum : baryum aux sommets, titane au centre, oxygène au centre des faces">
+            <g stroke="#b9c3c5" stroke-width="2" fill="none">
+              <path d="M90 110 H290 V290 H90 Z"/>
+              <path d="M150 50 H350 V230 H150 Z" stroke-dasharray="5 6"/>
+              <path d="M90 110 L150 50 M290 110 L350 50 M290 290 L350 230 M90 290 L150 230" />
+            </g>
+            <g stroke="#8A9976" stroke-width="2.4" opacity=".9">
+              <path d="M220 170 L220 80 M220 170 L220 260 M220 170 L120 200 M220 170 L320 140 M220 170 L190 170 M220 170 L250 170"/>
+            </g>
+            <g fill="#D9534F" stroke="#fff" stroke-width="2">
+              <circle cx="220" cy="80" r="13"/><circle cx="220" cy="260" r="13"/>
+              <circle cx="120" cy="200" r="13"/><circle cx="320" cy="140" r="13"/>
+              <circle cx="190" cy="170" r="11" opacity=".75"/><circle cx="250" cy="170" r="11" opacity=".75"/>
+            </g>
+            <circle cx="224" cy="166" r="17" fill="#567260" stroke="#fff" stroke-width="3"/>
+            <g fill="#33626B" stroke="#fff" stroke-width="3">
+              <circle cx="150" cy="50" r="22" opacity=".7"/><circle cx="350" cy="50" r="22" opacity=".7"/>
+              <circle cx="350" cy="230" r="22" opacity=".7"/><circle cx="150" cy="230" r="22" opacity=".7"/>
+              <circle cx="90" cy="110" r="24"/><circle cx="290" cy="110" r="24"/>
+              <circle cx="290" cy="290" r="24"/><circle cx="90" cy="290" r="24"/>
+            </g>
+            
+            <path d="M232 150 l14 -14" stroke="#567260" stroke-width="2.5" fill="none" marker-end="url(#ar)"/>
+            <defs><marker id="ar" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#567260"/></marker></defs>
+          </svg>
+          <div class="legend"><span><i style="background:#33626B"></i>Ba²⁺</span><span><i style="background:#567260"></i>Ti⁴⁺</span><span><i style="background:#D9534F"></i>O²⁻</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="eyebrow">Groupe KYMA · Universidad Nacional de Colombia · 2024 – présent</div>
+        <h3>Projet Piezo : des capteurs piézoélectriques sans plomb</h3>
+        <p>KYMA est le groupe de recherche en capteurs, contrôle et intelligence artificielle du département de mécatronique de l'UNAL. J'y travaille sur le projet <strong>Piezo</strong> : synthèse et caractérisation du titanate de baryum (BaTiO₃) pour fabriquer des capteurs de force et de vibration sans plomb.</p>
+        <ul>
+          <li>Conception électronique pour l'acquisition des signaux et l'IoT.</li>
+          <li>Algorithmes de commande robuste pour les systèmes dynamiques.</li>
+          <li>Gestion des ressources techniques du groupe.</li>
+        </ul>
+        <p style="font-size:14px;color:#555">Dans la maille pérovskite, l'ion titane légèrement décentré crée un dipôle : c'est ce qui rend le matériau piézoélectrique, et c'est ce que le capteur mesure.</p>
+        <a class="pill" href="https://kyma-un.github.io/personas/" target="_blank" rel="noopener">Voir le groupe KYMA →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= RÉGLEZ LE PID ======================= -->
+<section class="pid" id="pid">
+  <div class="wrap">
+    <h2 class="h-line"><span>Réglez le PID de mon aéropendule</span></h2>
+    <p class="lead">Ce simulateur utilise le modèle que j'ai identifié sur le banc, linéarisé autour de 70°. Déplacez les curseurs : la réponse à un échelon de 10° se recalcule en direct.</p>
+    <div class="pid-grid">
+      <div class="scope">
+        <canvas id="scope" width="960" height="540" aria-label="Réponse indicielle simulée de l'aéropendule"></canvas>
+        <div class="cap"><span>— consigne 10°</span><span id="capTxt">angle θ(t) [°]</span><span>t [s]</span></div>
+      </div>
+      <div class="ctrl">
+        <div class="slider"><label for="kp">Kp <output id="okp">0.28</output></label><input id="kp" type="range" min="0" max="1.5" step="0.01" value="0.28"></div>
+        <div class="slider"><label for="ki">Ki <output id="oki">1.00</output></label><input id="ki" type="range" min="0" max="3" step="0.05" value="1"></div>
+        <div class="slider"><label for="kd">Kd <output id="okd">0.20</output></label><input id="kd" type="range" min="0" max="0.6" step="0.01" value="0.2"></div>
+        <div class="presets">
+          <button type="button" data-g="0.28,1,0.2">Gains du rapport</button>
+          <button type="button" data-g="0.8,1.3,0.25">Gains du firmware</button>
+          <button type="button" data-g="0.5,0,0">P seul</button>
+        </div>
+        <div class="metrics">
+          <div class="metric" id="mOs"><b>–</b><span>dépassement</span></div>
+          <div class="metric" id="mTs"><b>–</b><span>temps de réponse à 2 %</span></div>
+          <div class="metric" id="mEss"><b>–</b><span>erreur finale</span></div>
+        </div>
+        <p class="note">Modèle : <code>G(s) = 140,3 / (s² + 1,937 s + 31,32)</code>, entrée en % de PWM, sortie en degrés. Correcteur <code>Kp + Ki/s + Kd·Ns/(s+N)</code> avec N = 100.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= EN ACTION ======================= -->
+<section class="action" id="videos">
+  <div class="wrap">
+    <div class="head-row">
+      <h2 class="h-line"><span>En action</span></h2>
+      <svg class="doodle" viewBox="0 0 100 50" aria-hidden="true"><path d="M6 36 C 20 8, 36 44, 50 20 C 60 4, 70 40, 88 16"/><path d="M78 12 L 90 15 L 86 27"/></svg>
+    </div>
+    <div class="vgrid">
+      <div class="vcard">
+        <video controls preload="none" playsinline poster="assets/img/feat_aeropendulo_poster.jpg" src="assets/vid/feat_aeropendulo.mp4" aria-label="Vidéo : comparaison des lois de commande de l'aéropendule"></video>
+        <h4>Aéropendule sur le banc</h4>
+        <p>PID, H∞, MRAC et mode glissant sur la même maquette, avec les courbes mesurées à côté.</p>
+      </div>
+      <div class="vcard">
+        <video controls preload="none" playsinline poster="assets/img/feat_levitador_poster.jpg" src="assets/vid/feat_levitador.mp4" aria-label="Vidéo : un aimant qui flotte grâce à un circuit analogique"></video>
+        <h4>Un aimant qui flotte, sans code</h4>
+        <p>Le lévitateur en fonctionnement, puis le circuit expliqué : champs, capteur Hall, correcteur et étage de puissance.</p>
+      </div>
+      <div class="vcard">
+        <video controls preload="none" playsinline poster="assets/img/feat_case_erector_poster.jpg" src="assets/vid/feat_case_erector.mp4" aria-label="Vidéo : Case Erector, une machine qui n'existe pas"></video>
+        <h4>Case Erector, en 2 minutes</h4>
+        <p>Trois axes, un automate émulé et un jumeau numérique : comment la machine a été programmée et validée.</p>
+      </div>
+      <div class="vcard">
+        <video controls preload="none" playsinline poster="assets/img/feat_thermalink_poster.jpg" src="assets/vid/feat_thermalink.mp4" aria-label="Vidéo : ThermaLink-C3, du prototype à l'essai"></video>
+        <h4>ThermaLink-C3, du prototype à l'essai</h4>
+        <p>De la platine d'essai à la carte soudée, puis l'essai dans une vraie pièce.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= PARCOURS ======================= -->
+<section class="parcours" id="parcours">
+  <div class="wrap">
+    <h2 class="h-line"><span>Parcours</span></h2>
+    <ol class="tl">
+      <li><div class="yr">2021</div><h4>Universidad Nacional de Colombia</h4><p>Début de l'ingénierie mécatronique à Bogotá.</p></li>
+      <li><div class="yr">2023</div><h4>UN Makerspace</h4><p>Prototypage, impression 3D et automatisation de flux (n8n).</p></li>
+      <li><div class="yr">2024</div><h4>Groupe KYMA</h4><p>Recherche sur les capteurs piézoélectriques (BaTiO₃).</p></li>
+      <li><div class="yr">2025</div><h4>Admis en double diplôme</h4><p>Sélectionné pour l'IMT Atlantique, 5ᵉ de ma promotion.</p></li>
+      <li><div class="yr">2026</div><h4>Projets et départ en France</h4><p>Aéropendule, ADANISS, ThermaLink, Case Erector ; rentrée à Nantes en août.</p></li>
+      <li class="next"><div class="yr">2027</div><h4>Stage de 2ᵉ année</h4><p>À partir d'avril, dans votre équipe ?</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ======================= OUTILS ======================= -->
+<section class="outils" id="outils">
+  <div class="wrap">
+    <div class="head-row">
+      <h2 class="h-line"><span>Outils</span></h2>
+      <svg class="doodle" viewBox="0 0 80 60" aria-hidden="true"><path d="M8 40 C 8 14, 34 8, 34 30 C 34 46, 18 46, 22 30 C 26 14, 52 10, 54 30 C 56 46, 42 50, 44 36 C 46 22, 66 24, 72 44"/></svg>
+    </div>
+    <div class="tgrid">
+      <div class="tbox">
+        <h3>Contrôle &amp; simulation</h3>
+        <div class="logorow"><img src="assets/logo/readme_matlab_simulink.png" alt="MATLAB et Simulink" style="height:80px"></div>
+      </div>
+      <div class="tbox">
+        <h3>Langages &amp; données</h3>
+        <div class="badges">
+          <img src="assets/badges/python.svg" alt="Python"><img src="assets/badges/matlab.svg" alt="MATLAB"><img src="assets/badges/c.svg" alt="C"><img src="assets/badges/cpp.svg" alt="C++"><img src="assets/badges/java.svg" alt="Java"><img src="assets/badges/javascript.svg" alt="JavaScript"><img src="assets/badges/pandas.svg" alt="Pandas"><img src="assets/badges/numpy.svg" alt="NumPy"><img src="assets/badges/latex.svg" alt="LaTeX">
+        </div>
+      </div>
+      <div class="tbox wide">
+        <h3>Électronique, embarqué &amp; IoT</h3>
+        <div class="logorow"><img class="band" src="assets/logo/readme_electronica.png" alt="Arduino, MPLAB XC, KiCad, Proteus, LTspice, Multisim"></div>
+        <div class="badges" style="margin-top:14px"><img src="assets/badges/esp32.svg" alt="ESP32"><img src="assets/badges/mqtt.svg" alt="MQTT"><img src="assets/badges/homeassistant.svg" alt="Home Assistant"></div>
+      </div>
+      <div class="tbox">
+        <h3>Automatisation industrielle</h3>
+        <div class="logorow">
+          <img src="assets/logo/readme_studio5000.png" alt="Studio 5000" class="xl">
+          <img src="assets/logo/readme_siemens_nx.png" alt="Siemens NX">
+          <img src="assets/logo/readme_tmx.png" alt="TMX PtS">
+          <img src="assets/logo/readme_cadesimu_fluidsim.png" alt="CADe SIMU et FESTO FluidSIM" class="xl">
+        </div>
+      </div>
+      <div class="tbox">
+        <h3>CAO / FAO</h3>
+        <div class="badges"><img src="assets/badges/fusion360.svg" alt="Autodesk Fusion 360"></div>
+        <div class="logorow"><img src="assets/logo/readme_mastercam.png" alt="Mastercam" style="height:48px"></div>
+      </div>
+      <div class="tbox">
+        <h3>Web &amp; outils</h3>
+        <div class="badges">
+          <img src="assets/badges/react.svg" alt="React"><img src="assets/badges/html5.svg" alt="HTML5"><img src="assets/badges/css3.svg" alt="CSS3"><img src="assets/badges/tailwind.svg" alt="Tailwind CSS"><img src="assets/badges/nodejs.svg" alt="Node.js"><img src="assets/badges/firebase.svg" alt="Firebase"><img src="assets/badges/vite.svg" alt="Vite"><img src="assets/badges/git.svg" alt="Git"><img src="assets/badges/github.svg" alt="GitHub"><img src="assets/badges/vscode.svg" alt="VS Code"><img src="assets/badges/androidstudio.svg" alt="Android Studio"><img src="assets/badges/n8n.svg" alt="n8n">
+        </div>
+      </div>
+      <div class="tbox">
+        <h3>Productivité</h3>
+        <div class="logorow"><img class="band" src="assets/logo/readme_ofimatica.png" alt="Overleaf, Word, Excel, Canva, Notion, Obsidian, Slack"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= FORMATION ======================= -->
+<section class="formation" id="formation">
+  <div class="wrap">
+    <div class="h-right">
+      <svg class="doodle" viewBox="0 0 80 60" aria-hidden="true"><path d="M10 50 C 14 30, 24 14, 30 8 M26 52 C 30 32, 40 16, 46 10 M42 54 C 46 34, 56 18, 62 12"/></svg>
+      <h2>Formation</h2>
+    </div>
+    <div class="fgrid">
+      <div>
+        <div class="school">
+          <div class="logo"><img class="imt" src="assets/logo/imt_atlantique_oficial.svg" alt="IMT Atlantique"></div>
+          <div class="vbar" style="background:var(--green)"></div>
+          <div>
+            <h4>IMT Atlantique · Nantes</h4>
+            <p>Élève ingénieur généraliste (FISE, 2ᵉ année), double diplôme.<br>Thématique ASCY : Automatique et Systèmes Cyber-physiques · 2026–2028</p>
+          </div>
+        </div>
+        <div class="school">
+          <div class="logo logo-unal">
+            <img src="assets/logo/unal_escudo.png" alt="" style="height:64px">
+            <div class="unal-w">Universidad<b>Nacional</b>de Colombia</div>
+          </div>
+          <div class="vbar" style="background:var(--slate)"></div>
+          <div>
+            <h4>Universidad Nacional de Colombia · Bogotá</h4>
+            <p>Ingénierie mécatronique, 2021–2026. Moyenne 4,4/5 · 5ᵉ de la promotion · moniteur académique.</p>
+          </div>
+        </div>
+      </div>
+      <div class="langs" aria-label="Langues">
+        <div class="lang">Espagnol (langue maternelle)
+          <svg class="pin" viewBox="0 0 32 40" aria-hidden="true"><defs><clipPath id="c-es"><circle cx="16" cy="15" r="12"/></clipPath></defs>
+            <path d="M16 39 L7 24 A14 14 0 1 1 25 24 Z" fill="#9aa3a6"/>
+            <g clip-path="url(#c-es)"><rect x="0" y="0" width="32" height="30" fill="#c60b1e"/><rect x="0" y="9" width="32" height="12" fill="#ffc400"/></g></svg>
+        </div>
+        <div class="lang">Anglais (C1)
+          <svg class="pin" viewBox="0 0 32 40" aria-hidden="true"><defs><clipPath id="c-en"><circle cx="16" cy="15" r="12"/></clipPath></defs>
+            <path d="M16 39 L7 24 A14 14 0 1 1 25 24 Z" fill="#9aa3a6"/>
+            <g clip-path="url(#c-en)"><rect x="0" y="0" width="32" height="30" fill="#012169"/>
+              <path d="M0 0 L32 30 M32 0 L0 30" stroke="#fff" stroke-width="6"/><path d="M0 0 L32 30 M32 0 L0 30" stroke="#c8102e" stroke-width="2"/>
+              <path d="M16 0 V30 M0 15 H32" stroke="#fff" stroke-width="8"/><path d="M16 0 V30 M0 15 H32" stroke="#c8102e" stroke-width="4"/></g></svg>
+        </div>
+        <div class="lang">Français (B2, certifié)
+          <svg class="pin" viewBox="0 0 32 40" aria-hidden="true"><defs><clipPath id="c-fr"><circle cx="16" cy="15" r="12"/></clipPath></defs>
+            <path d="M16 39 L7 24 A14 14 0 1 1 25 24 Z" fill="#9aa3a6"/>
+            <g clip-path="url(#c-fr)"><rect x="0" y="0" width="12" height="30" fill="#002395"/><rect x="12" y="0" width="8" height="30" fill="#fff"/><rect x="20" y="0" width="12" height="30" fill="#ed2939"/></g></svg>
+        </div>
+        <div class="lang">Allemand (A1)
+          <svg class="pin" viewBox="0 0 32 40" aria-hidden="true"><defs><clipPath id="c-de"><circle cx="16" cy="15" r="12"/></clipPath></defs>
+            <path d="M16 39 L7 24 A14 14 0 1 1 25 24 Z" fill="#9aa3a6"/>
+            <g clip-path="url(#c-de)"><rect x="0" y="0" width="32" height="10" fill="#000"/><rect x="0" y="10" width="32" height="10" fill="#dd0000"/><rect x="0" y="20" width="32" height="10" fill="#ffce00"/></g></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= GALERIE ======================= -->
+<section class="galerie" aria-label="Galerie">
+  <div class="wrap">
+    <div class="ggrid">
+      <figure>
+        <img src="assets/img/gallery_robot_43.jpg" alt="Le bras ADANISS prêt à dessiner" loading="lazy">
+        <figcaption>Le bras ADANISS monté sur son plan de travail, prêt à dessiner le trèfle.</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/img/gallery_proto_43.jpg" alt="Soudure du prototype ThermaLink sur platine d'essai" loading="lazy">
+        <figcaption>Premier prototype de ThermaLink-C3 sur platine d'essai, avant la carte définitive.</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/img/gallery_lev_43.jpg" alt="Lévitateur magnétique sur le bureau, schéma à l'écran" loading="lazy">
+        <figcaption>Le lévitateur et son schéma : reconstruire la boucle de commande étage par étage.</figcaption>
+      </figure>
+    </div>
+    <svg class="doodle" viewBox="0 0 80 40" aria-hidden="true"><path d="M6 30 C 14 6, 26 34, 34 14 C 40 0, 50 30, 58 12 C 64 0, 70 20, 76 10"/></svg>
+  </div>
+</section>
+
+<!-- ======================= CONTACT ======================= -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="c-logos">
+      <img class="imt" src="assets/logo/imt_atlantique_oficial_blanco.svg" alt="IMT Atlantique">
+      <div class="logo-unal">
+        <img src="assets/logo/unal_escudo_blanco.png" alt="">
+        <div class="unal-w">Universidad<b>Nacional</b>de Colombia</div>
+      </div>
+    </div>
+    <div class="c-grid">
+      <div class="c-title">
+        <h2>Travaillons<br>ensemble</h2>
+        <svg class="doodle" viewBox="0 0 100 70" aria-hidden="true">
+          <path d="M56 8 l2 10 M70 6 l-2 10 M84 12 l-7 8"/>
+          <path d="M6 50 C 18 26, 36 60, 48 40 C 56 26, 70 34, 88 32"/>
+          <path d="M78 22 L 90 32 L 80 44"/>
+        </svg>
+      </div>
+      <div class="c-sep"></div>
+      <div class="c-info">
+        <p>Nicolás Plata Molano</p>
+        <p>Élève ingénieur en Automatique &amp; Systèmes Cyber-physiques</p>
+        <p>Nantes, France</p>
+        <p class="mail"><span id="email">nicao511ng@gmail.com</span><button class="copy" id="copyBtn" type="button">Copier</button></p>
+        <div class="c-links">
+          <a href="https://www.linkedin.com/in/nicolas-plata-molano/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.6 8.65 21 11.3 21 14.7V21h-4v-5.6c0-1.34-.03-3.06-1.86-3.06-1.87 0-2.15 1.46-2.15 2.96V21H9z"/></svg>
+            LinkedIn
+          </a>
+          <a href="https://github.com/NicolasPlata2004" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg>
+            GitHub
+          </a>
+          <a href="assets/cv/CV_Nicolas_Plata_Molano_FR.pdf" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg>
+            CV
+          </a>
+        </div>
+        <p class="avail">Ouvert aux opportunités de stage de 2ᵉ année (4 à 5 mois à partir d'avril 2027, ou 2 à 3 mois dès juin) en automatique, robotique, systèmes embarqués et automatisation industrielle.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Nicolás Plata Molano · Portfolio d'ingénierie · Nantes</span>
+    <span>Photos de Bogotá et Nantes : Wikimedia Commons (<a href="https://commons.wikimedia.org/wiki/File:Bog_-_Vista_UNAL.JPG" target="_blank" rel="noopener">CC BY-SA 3.0</a>, <a href="https://commons.wikimedia.org/wiki/File:Nantes_aerial_skyline_view.jpg" target="_blank" rel="noopener">CC0</a>) · Logo IMT Atlantique : <a href="https://commons.wikimedia.org/wiki/File:IMT_Atlantique.svg" target="_blank" rel="noopener">domaine public</a></span>
+  </div>
+</footer>
+
+</div>
+
+<script>
+  // ---- Clips : lecture quand ils sont visibles (jamais si l'utilisateur limite les animations) ----
+  (function(){
+    var vids=[].slice.call(document.querySelectorAll('video[data-auto]'));
+    var calm=window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(calm||!vids.length) return;
+    function play(v){ var p=v.play(); if(p&&p.catch) p.catch(function(){}); }
+    if(!('IntersectionObserver' in window)){ vids.forEach(play); return; }
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting) play(e.target); else e.target.pause(); });
+    },{threshold:0.35});
+    vids.forEach(function(v){ io.observe(v); });
+  })();
+
+  // ---- Simulateur PID sur le modèle identifié de l'aéropendule ----
+  (function(){
+    var cv=document.getElementById('scope'); if(!cv) return;
+    var ctx=cv.getContext('2d');
+    var kp=document.getElementById('kp'), ki=document.getElementById('ki'), kd=document.getElementById('kd');
+    var okp=document.getElementById('okp'), oki=document.getElementById('oki'), okd=document.getElementById('okd');
+    var T=8, dt=0.0005, R=10, N=100;
+    function simulate(Kp,Ki,Kd){
+      var x1=0,x2=0,I=0,D=0,ePrev=R,ys=[],us=[],n=Math.round(T/dt);
+      for(var k=0;k<n;k++){
+        var e=R-x1; I+=Ki*e*dt;
+        var de=k>0?(e-ePrev)/dt:0; ePrev=e;
+        D+=dt*N*(Kd*de-D);
+        var u=Kp*e+I+D;
+        var a=140.3*u-1.937*x2-31.32*x1;
+        x2+=a*dt; x1+=x2*dt;
+        if(k%10===0){ ys.push(x1); us.push(u); }
+      }
+      return {y:ys,u:us,step:dt*10};
+    }
+    function metrics(s){
+      var y=s.y, max=-1e9; y.forEach(function(v){ if(v>max) max=v; });
+      var os=Math.max(0,(max-R)/R*100), last=0;
+      for(var i=0;i<y.length;i++){ if(Math.abs(y[i]-R)>0.02*R) last=i; }
+      var ts=(last+1)*s.step, ess=R-y[y.length-1];
+      return {os:os,ts:ts,ess:ess,settled:last<y.length-5};
+    }
+    function draw(){
+      var Kp=+kp.value,Ki=+ki.value,Kd=+kd.value;
+      okp.textContent=Kp.toFixed(2); oki.textContent=Ki.toFixed(2); okd.textContent=Kd.toFixed(2);
+      var s=simulate(Kp,Ki,Kd), m=metrics(s);
+      var W=cv.width,H=cv.height,L=64,Rm=18,Tp=18,B=46, yMin=0, yMax=Math.max(16,Math.ceil(Math.max.apply(null,s.y)/2)*2+2);
+      if(!isFinite(yMax)||yMax>60) yMax=60;
+      ctx.clearRect(0,0,W,H); ctx.fillStyle='#0f1a1d'; ctx.fillRect(0,0,W,H);
+      var X=function(t){return L+(W-L-Rm)*t/T;}, Y=function(v){return Tp+(H-Tp-B)*(1-(v-yMin)/(yMax-yMin));};
+      ctx.strokeStyle='#23363b'; ctx.lineWidth=1; ctx.font='20px JetBrains Mono, monospace'; ctx.fillStyle='#8aa2a8';
+      for(var t=0;t<=T;t+=1){ ctx.beginPath(); ctx.moveTo(X(t),Tp); ctx.lineTo(X(t),H-B); ctx.stroke(); ctx.fillText(t,X(t)-6,H-16); }
+      var stepY=yMax>30?10:(yMax>16?4:2);
+      for(var v=0;v<=yMax;v+=stepY){ ctx.beginPath(); ctx.moveTo(L,Y(v)); ctx.lineTo(W-Rm,Y(v)); ctx.stroke(); ctx.fillText(v,L-40,Y(v)+7); }
+      ctx.setLineDash([10,8]); ctx.strokeStyle='#E8934A'; ctx.lineWidth=3; ctx.beginPath(); ctx.moveTo(X(0),Y(R)); ctx.lineTo(X(T),Y(R)); ctx.stroke(); ctx.setLineDash([]);
+      ctx.strokeStyle='#5FCEDA'; ctx.lineWidth=4; ctx.lineJoin='round'; ctx.beginPath();
+      for(var i=0;i<s.y.length;i++){ var yy=Math.max(yMin-5,Math.min(yMax+5,s.y[i])); if(i===0) ctx.moveTo(X(0),Y(yy)); else ctx.lineTo(X(i*s.step),Y(yy)); }
+      ctx.stroke();
+      var set=function(id,val,bad){ var el=document.getElementById(id); el.querySelector('b').textContent=val; el.classList.toggle('bad',!!bad); };
+      var unstable=!isFinite(s.y[s.y.length-1])||Math.abs(s.y[s.y.length-1])>200;
+      if(unstable){ set('mOs','instable',true); set('mTs','—',true); set('mEss','—',true); return; }
+      set('mOs',m.os.toFixed(1).replace('.',',')+' %',m.os>25);
+      set('mTs',m.settled?m.ts.toFixed(2).replace('.',',')+' s':'> 8 s',!m.settled);
+      set('mEss',Math.abs(m.ess).toFixed(2).replace('.',',')+'°',Math.abs(m.ess)>0.2);
+    }
+    [kp,ki,kd].forEach(function(el){ el.addEventListener('input',draw); });
+    [].forEach.call(document.querySelectorAll('.presets button'),function(b){
+      b.addEventListener('click',function(){ var g=b.getAttribute('data-g').split(','); kp.value=g[0]; ki.value=g[1]; kd.value=g[2]; draw(); });
+    });
+    draw();
+  })();
+
+  // ---- Copier l'adresse e-mail ----
+  (function(){
+    var b=document.getElementById('copyBtn'), s=document.getElementById('email');
+    if(!b||!s) return;
+    function done(){ b.textContent='Copié'; setTimeout(function(){ b.textContent='Copier'; },1600); }
+    function select(){ var r=document.createRange(); r.selectNodeContents(s); var sel=getSelection(); sel.removeAllRanges(); sel.addRange(r); done(); }
+    b.addEventListener('click',function(){
+      if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(s.textContent).then(done,select); }
+      else select();
+    });
+  })();
+</script>
+</body>
+</html>

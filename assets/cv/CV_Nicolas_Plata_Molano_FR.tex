@@ -1,0 +1,111 @@
+% =====================================================================
+%  CV — Nicolás Plata Molano · format une colonne (inspiré de sa « Hoja de vida »)
+%  Compilation : pdflatex CV_Nicolas_Plata_Molano_FR.tex
+% =====================================================================
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[sfdefault,book,lining]{FiraSans}
+\usepackage[left=1.5cm,right=1.5cm,top=1.0cm,bottom=0.9cm]{geometry}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage[hidelinks]{hyperref}
+\usepackage[expansion=false]{microtype}
+\usepackage{amssymb}
+
+\definecolor{navy}{HTML}{1F3F6E}
+\definecolor{grey}{HTML}{5C6770}
+\definecolor{rule}{HTML}{1F3F6E}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\linespread{1.03}
+
+\titleformat{\section}{\color{navy}\large\bfseries}{}{0pt}{}[\vspace{1pt}{\color{rule}\titlerule[0.6pt]}]
+\titlespacing*{\section}{0pt}{6pt}{3pt}
+
+% \entree{Titre — rôle}{Lieu / dates}{texte}
+\newcommand{\entree}[3]{%
+  \textbf{#1}\hfill{\small\itshape #2}\par\vspace{0.5pt}
+  {\small #3}\par\vspace{3.5pt}}
+
+\newcommand{\bati}{BaTiO\textsubscript{3}}
+
+\begin{document}
+
+% ======================= EN-TÊTE =======================
+\begin{center}
+  {\LARGE\bfseries NICOLÁS PLATA MOLANO}\\[2pt]
+  {\color{grey}Élève-ingénieur en double diplôme — IMT Atlantique (ASCY) · Universidad Nacional de Colombia}\\[3pt]
+  {\small \href{mailto:nicao511ng@gmail.com}{nicao511ng@gmail.com} \;|\; +33 7 45 57 71 66 \;|\; Nantes, France}\\[1pt]
+  {\small \href{https://www.linkedin.com/in/nicolas-plata-molano}{linkedin.com/in/nicolas-plata-molano} \;|\;
+  \href{https://github.com/NicolasPlata2004}{github.com/NicolasPlata2004} \;|\;
+  \href{https://nicolasplata2004.github.io}{\textbf{Portfolio : nicolasplata2004.github.io}}}
+\end{center}
+\vspace{-4pt}
+{\color{rule}\rule{\linewidth}{0.8pt}}
+\vspace{2pt}
+
+{\small\textbf{Recherche un stage de 2\textsuperscript{e} année} (4–5 mois dès avril 2027, ou 2–3 mois dès juin) en automatique,
+robotique, systèmes embarqués ou automatisation industrielle — Nantes en priorité, mobile dans toute la France.}
+
+% ======================= PROFIL =======================
+\section{Profil}
+{\small Élève-ingénieur en mécatronique, \textbf{5\textsuperscript{e} de ma promotion} (moyenne 4,4/5). J'identifie, commande et valide
+des systèmes sur du matériel réel : quatre lois de commande testées sur banc, un bras robotique 2R, un objet IoT sur ESP32 et une ligne
+pilotée par automate. En recherche (groupe KYMA), je travaille sur des capteurs piézoélectriques sans plomb (\bati).}
+
+% ======================= FORMATION =======================
+\section{Formation}
+\entree{IMT Atlantique — Diplôme d'ingénieur généraliste (FISE 2A), double diplôme}{Nantes, 2026–2028}{%
+Thématique ASCY : Automatique et Systèmes Cyber-physiques. Commande d'entreprise en cours : qualification d'une passerelle IoT industrielle
+(MQTT, Modbus, OPC-UA, S7) pour une startup incubée à l'école.}
+\entree{Universidad Nacional de Colombia — Ingénierie mécatronique}{Bogotá, 2021–2026}{%
+\textit{Moyenne :} \textbf{4,4 / 5} \;|\; \textbf{5\textsuperscript{e} de la promotion} \;|\; \textit{Cursus validé :} 73,7 \%.
+Moniteur académique ; formation en instrumentation industrielle, robotique et modélisation de systèmes dynamiques.}
+\entree{I.E. Camilo Torres Restrepo — Baccalauréat}{Aguazul, Casanare}{%
+Meilleure moyenne de l'établissement et score ICFES remarqué au niveau départemental.}
+
+% ======================= EXPÉRIENCE =======================
+\section{Recherche et projets}
+\entree{Groupe de recherche KYMA (UNAL) — Chercheur, capteurs et commande}{2024–présent}{%
+Projet \textit{Piezo} : synthèse et caractérisation du titanate de baryum (\bati) pour des capteurs piézoélectriques de force et de vibration
+sans plomb. Conception électronique pour l'acquisition de signaux et l'IoT, algorithmes de commande robuste.}
+\entree{Aéropendule — identification et quatre lois de commande}{Técnicas de Control, 2026}{%
+Modèle non linéaire identifié et validé sous Simulink (R\textsuperscript{2} = 0,943) ; PID, H$\infty$, MRAC et mode glissant déployés sur Arduino et comparés sur le banc réel.}
+\entree{Bras robotique 2R « ADANISS »}{Servomecanismos, 2026}{%
+Trajectoire polaire paramétrique, cinématique inverse, identification des moteurs (R\textsuperscript{2} > 0,99) et PID discret sur ESP32 ;
+carte électronique conçue et fabriquée par l'équipe.}
+\entree{ThermaLink-C3 — supervision IoT de climatisation}{2026}{%
+ESP32-C3 : détection de présence, température, clonage de trames IR et machine à états ; panneau web, \textbf{MQTT} et intégration
+Home Assistant ; PCB sous KiCad. Économie estimée : environ 29 \%.}
+\entree{Case Erector — automatisation industrielle}{Proyecto industrial, 2026}{%
+Formeuse de caisses à trois axes (20 caisses/min) programmée en ladder (Studio 5000) sur automate émulé, validée par jumeau numérique (OPC DA, Siemens NX).}
+\entree{UN Makerspace — Prototypage et IoT}{2023–présent}{%
+Conception mécanique et prototypage par impression 3D ; automatisation de flux de travail (n8n) pour la traçabilité des projets.}
+\entree{Contrôle thermique périopératoire — systèmes embarqués}{UNAL}{%
+Boucle PI sur microcontrôleur PIC18F4550 et traitement numérique du signal en temps réel.}
+
+% ======================= COMPÉTENCES =======================
+\section{Compétences}
+{\small
+\textbf{Automatique :} identification, PID, H$\infty$, MRAC, mode glissant, MATLAB/Simulink (déploiement sur Arduino).\\
+\textbf{Embarqué \& IoT :} ESP32, Arduino, PIC18F4550, C/C++, MQTT, Home Assistant, KiCad, Proteus, LTspice.\\
+\textbf{Automatisme :} Studio 5000 (ladder), OPC, Modbus, jumeau numérique (Siemens NX), CADe SIMU, FluidSIM.\\
+\textbf{CAO / FAO :} Fusion 360, Inventor, AutoCAD, Mastercam, impression 3D.\\
+\textbf{Programmation :} Python (Pandas, NumPy, Matplotlib), MATLAB, C/C++, JavaScript/React, Git, LaTeX.\\
+\textbf{Vulgarisation :} animations scientifiques avec Manim ; fondateur du blog « El Éter ».}
+
+% ======================= LANGUES ET CERTIFICATIONS =======================
+\section{Langues et certifications}
+{\small
+\textbf{Langues :} espagnol (langue maternelle) · anglais C1 (certification B2) · \textbf{français B2 (certification officielle)} · allemand A1.\\
+\textbf{Certifications :} Diplôme en développement d'applications mobiles (MinTIC / Universidad Tecnológica de Pereira) ; fondamentaux de la
+programmation et du développement logiciel (MinTIC) ; impression 3D métallique ; Python pour l'analyse de données.}
+
+\end{document}
