@@ -17,6 +17,10 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage[expansion=false]{microtype}
 \usepackage{amssymb}
+\usepackage{fontawesome5}
+% \lien{icône}{url}{texte} : logo + texte en couleur, pour montrer que c'est cliquable
+\newcommand{\lien}[3]{\href{#2}{\textcolor{navy}{#1\,#3}}}
+\newcommand{\info}[2]{\textcolor{grey}{#1}\,#2}
 \usepackage{fancyhdr}
 \usepackage{lastpage}
 
@@ -53,24 +57,23 @@
 \begin{center}
   {\LARGE\bfseries NICOLÁS PLATA MOLANO}\\[2pt]
   {\color{grey}Élève-ingénieur en double diplôme — IMT Atlantique (Automatique \& Systèmes Cyber-physiques) · Universidad Nacional de Colombia (Mécatronique)}\\[3pt]
-  {\small \href{mailto:nicao511ng@gmail.com}{nicao511ng@gmail.com} \;|\; +33 7 45 57 71 66 \;|\; Nantes, France \;|\; Nationalité colombienne, titre de séjour étudiant}\\[1pt]
-  {\small \href{https://www.linkedin.com/in/nicolas-plata-molano}{linkedin.com/in/nicolas-plata-molano} \;|\;
-  \href{https://github.com/NicolasPlata2004}{github.com/NicolasPlata2004} \;|\;
-  \href{https://nicolasplata2004.github.io}{\textbf{Portfolio : nicolasplata2004.github.io}}}
+  {\small \info{\faMapMarker*}{Nantes, France} \quad \lien{\faEnvelope}{mailto:nicao511ng@gmail.com}{nicao511ng@gmail.com} \quad \lien{\faPhone}{tel:+33745577166}{+33 7 45 57 71 66}}\\[2pt]
+  {\small \lien{\faLinkedin}{https://www.linkedin.com/in/nicolas-plata-molano}{linkedin.com/in/nicolas-plata-molano} \quad \lien{\faGithub}{https://github.com/NicolasPlata2004}{github.com/NicolasPlata2004} \quad \lien{\faGlobe}{https://nicolasplata2004.github.io}{\textbf{Portfolio : nicolasplata2004.github.io}}}
 \end{center}
 \vspace{-4pt}
 {\color{navy}\rule{\linewidth}{0.8pt}}
 \vspace{3pt}
 
-{\small\textbf{Objectif — stage de 2\textsuperscript{e} année} : 4 à 5 mois à partir d'avril 2027 (ou 2 à 3 mois dès juin) en automatique,
-robotique, systèmes embarqués ou automatisation industrielle. Nantes en priorité, mobile dans toute la France.}
+{\small\textbf{Objectif — stage de 2\textsuperscript{e} année} : 4 à 5 mois à partir d'avril 2027 en automatique,
+robotique, systèmes embarqués ou automatisation industrielle, en France.}
 
 % ======================= PROFIL =======================
 \section{Profil}
 {\small Élève-ingénieur en mécatronique, \textbf{5\textsuperscript{e} de ma promotion} (moyenne 4,4/5), admis en double diplôme à l'IMT Atlantique.
 Mon fil conducteur : passer du modèle au système réel. J'identifie des procédés, je conçois leurs lois de commande, je les implémente sur
 microcontrôleur ou sur automate, puis je les valide sur banc : quatre lois de commande sur un aéropendule, un bras robotique 2R qui dessine,
-un objet IoT connecté en MQTT et une machine automatisée validée par jumeau numérique. En recherche, je contribue à des capteurs
+un objet IoT connecté en MQTT et une machine automatisée validée par jumeau numérique. À l'IMT Atlantique, je suis
+responsable technique d'une commande d'entreprise en IoT industriel et je porte une proposition d'expérience en vol parabolique pour le CNES. En recherche, je contribue à des capteurs
 piézoélectriques sans plomb (\bati) au sein du groupe KYMA. J'aime aussi expliquer : je réalise des animations pédagogiques (Manim)
 et j'ai fondé un blog de vulgarisation scientifique.}
 
@@ -78,14 +81,38 @@ et j'ai fondé un blog de vulgarisation scientifique.}
 \section{Formation}
 \entree{IMT Atlantique — Diplôme d'ingénieur généraliste (FISE 2A), double diplôme}{Nantes, 2026–2028}{%
 Thématique d'approfondissement \textbf{ASCY — Automatique et Systèmes Cyber-physiques}. Diplôme accrédité par la CTI.
-Enseignements : asservissements monovariables robustes, représentation d'état.
-Commande d'entreprise en cours avec la startup NEXERGY (voir « Projets »).}
+Enseignements : asservissements monovariables robustes, représentation d'état.}
 \entree{Universidad Nacional de Colombia — Ingénierie mécatronique}{Bogotá, 2021–2026}{%
-\textit{Moyenne :} \textbf{4,4 / 5} \;|\; \textbf{5\textsuperscript{e} de la promotion} \;|\; \textit{Cursus validé :} 73,7 \% \;|\; Moniteur académique.\\
+\textit{Moyenne :} \textbf{4,4 / 5} \;|\; \textbf{5\textsuperscript{e} de la promotion} \;|\; Moniteur académique.\\
 Cours marquants : Techniques de commande (PID, H$\infty$, MRAC, mode glissant), Servomécanismes, Projet industriel, Microcontrôleurs,
 Électronique numérique, Réseaux informatiques, Instrumentation industrielle, Robotique, Procédés de fabrication II (4,8/5), Structures de données.}
-\entree{I.E. Camilo Torres Restrepo — Baccalauréat}{Aguazul, Casanare}{%
-Meilleure moyenne de l'établissement ; score ICFES remarqué au niveau départemental.}
+
+% ======================= PROJETS EN COURS =======================
+\section{Projets en cours — IMT Atlantique}
+\entree{Responsable technique — Qualification d'une passerelle IoT industrielle}{NEXERGY, Nantes · sept.–déc. 2026}{%
+\begin{points}
+  \item \textbf{Enjeu :} commande d'entreprise pour une start-up incubée à IMT Atlantique ; prouver, avant déploiement, que sa passerelle
+        MultiEdge (MQTT, Modbus, OPC-UA, S7, EtherNet/IP, BACnet) remonte les données jusqu'au cloud sans perte.
+  \item \textbf{Responsable technique} (équipe de 7) : architecture du banc d'essai (automates Siemens S7 et Allen-Bradley, serveur OPC-UA, module
+        Modbus/BACnet), arbitrage des choix techniques, interlocuteur technique du client ; présentation du projet au client.
+  \item Maquette locale de la chaîne compteur $\rightarrow$ MQTT $\rightarrow$ edge en Python ; diagnostic d'une passerelle Zigbee fournie
+        (micrologiciel propriétaire, sans MQTT ni interface locale) $\rightarrow$ écartée du banc, avec justification documentée.
+  \item \textit{Premiers résultats} : après une coupure du broker de 16 s, reconnexion automatique des clients et aucune énergie perdue
+        (index cumulé) ; un faux pic de \textbf{12 311 kWh} détecté lors d'un faux reset du compteur $\rightarrow$ contrôle de plausibilité proposé.
+        Livraison prévue en décembre 2026.
+\end{points}
+\outils{Mosquitto, Python (paho-mqtt), MQTT Explorer.}}
+
+\entree{SLOSH-G — expérience en micropesanteur (programme Parabole, CNES)}{SpaceCraft'IMT · 2026}{%
+\begin{points}
+  \item \textbf{Enjeu :} le ballottement (\textit{sloshing}) des ergols perturbe le contrôle d'attitude des engins spatiaux et reste difficile
+        à prédire en micropesanteur.
+  \item À l'origine de la proposition : expérience embarquée dans l'A310 Zero-G (31 paraboles) comparant une atténuation
+        \textbf{passive} (chicanes perforées) et \textbf{active} (commande LQG à partir d'une centrale inertielle).
+  \item Dimensionnement (nombre de Bond, fréquence propre $\propto \sqrt{g}$), simulations Boltzmann sur réseau (LBM) et éléments finis (Gmsh),
+        animations explicatives ; dossier de candidature rédigé en équipe, \textbf{dépôt au CNES le 30/10/2026}.
+\end{points}
+\outils{Python, Gmsh, LaTeX (Overleaf), Manim.}}
 
 % ======================= RECHERCHE =======================
 \section{Expérience de recherche}
@@ -93,6 +120,7 @@ Meilleure moyenne de l'établissement ; score ICFES remarqué au niveau départe
 KYMA est le groupe de recherche en capteurs, contrôle et intelligence artificielle du département de mécatronique de l'UNAL.
 \begin{points}
   \item Projet \textit{Piezo} : synthèse et caractérisation du titanate de baryum (\bati) pour des capteurs piézoélectriques de force et de vibration sans plomb.
+  \item Pour qualifier ces capteurs : simulations, calculs de dimensionnement et conception complète d'un \textbf{banc d'étalonnage}, sous la direction de deux professeurs.
   \item Conception électronique pour l'acquisition des signaux et l'IoT ; algorithmes de commande robuste pour systèmes dynamiques.
   \item Gestion des ressources techniques du groupe.
 \end{points}}
@@ -106,9 +134,9 @@ KYMA est le groupe de recherche en capteurs, contrôle et intelligence artificie
         modèle non linéaire validé sous Simulink avec \textbf{R\textsuperscript{2} = 0,943} et RMSE = 3,37°.
   \item Linéarisation à 70° et synthèse d'un PID par lieu des racines, puis d'un correcteur \textbf{H$\infty$} par sensibilité mixte (S, T, KS),
         d'une commande adaptative \textbf{MRAC} et d'une commande par \textbf{mode glissant}.
-  \item Déploiement des quatre lois sur Arduino depuis Simulink et comparaison sur le banc réel (rejet de perturbation, robustesse au retard).
+  \item Déploiement des quatre lois sur Arduino depuis Simulink et comparaison sur le banc réel : le PID tient la barre à \textbf{90°} (près de la saturation) et rejette les perturbations ; étude de robustesse au retard.
 \end{points}
-\outils{MATLAB/Simulink, Simulink Support Package for Arduino, C/C++.} \href{https://github.com/NicolasPlata2004/MATLAB_Pendulo}{\small[code]}}
+\outils{MATLAB/Simulink, Simulink Support Package for Arduino, C/C++.} \href{https://github.com/NicolasPlata2004/MATLAB_Pendulo}{\small\textcolor{navy}{\faGithub\,code}}}
 
 \entree{Bras robotique plan 2R « ADANISS »}{Servomecanismos, 2026 · équipe de 5}{%
 \begin{points}
@@ -117,15 +145,15 @@ KYMA est le groupe de recherche en capteurs, contrôle et intelligence artificie
   \item Identification des articulations par essais en impulsion (\textbf{R\textsuperscript{2} > 0,99}) : gain, constante de temps, zone morte.
   \item PID discret sur ESP32, visualisation temps réel sous MATLAB à 60 Hz ; carte électronique (2 ponts BTS7960, capteurs de courant) conçue et fabriquée par l'équipe.
 \end{points}
-\outils{MATLAB, ESP32, Fusion 360, impression 3D PETG, découpe laser.} \href{https://github.com/NicolasPlata2004/ADANISS-2R}{\small[code]}}
+\outils{MATLAB, ESP32, Fusion 360, impression 3D PETG, découpe laser.} \href{https://github.com/NicolasPlata2004/ADANISS-2R}{\small\textcolor{navy}{\faGithub\,code}}}
 
 \entree{Case Erector — formeuse de caisses automatisée}{Proyecto industrial, 2026 · équipe de 5}{%
 \begin{points}
-  \item Programmation en ladder (Studio 5000) d'une machine à trois axes à 20 caisses/min sur automate Allen-Bradley émulé.
+  \item Programmation en ladder (Studio 5000) d'une machine à trois axes sur automate Allen-Bradley émulé : cycle validé à \textbf{20 caisses/min} sans matériel réel.
   \item Validation sans machine réelle grâce à un jumeau numérique sous Siemens NX relié en OPC DA.
   \item Mesure du cycle dans les Trends (un cycle toutes les 3 s) et compensation de la latence de communication.
 \end{points}
-\outils{Studio 5000, automate émulé, OPC DA, Siemens NX.} \href{https://github.com/NicolasPlata2004/Case-Erector-Motion-control-of-a-three-axis-box-former-with-a-digital-twin}{\small[code]}}
+\outils{Studio 5000, automate émulé, OPC DA, Siemens NX.} \href{https://github.com/NicolasPlata2004/Case-Erector-Motion-control-of-a-three-axis-box-former-with-a-digital-twin}{\small\textcolor{navy}{\faGithub\,code}}}
 
 \entree{ThermaLink-C3 — supervision de climatisation consciente de l'occupation}{Redes de Computadores, 2026 · individuel}{%
 \begin{points}
@@ -138,20 +166,13 @@ KYMA est le groupe de recherche en capteurs, contrôle et intelligence artificie
 \end{points}
 \outils{C++, ESP32-C3, MQTT, Home Assistant, KiCad, Fusion 360.}}
 
-\entree{Passerelle IoT industrielle — commande d'entreprise NEXERGY}{IMT Atlantique, 2026–2027 · équipe de 7}{%
-\begin{points}
-  \item Responsable technique : déployer et qualifier la passerelle multiprotocole MultiEdge (MQTT, Modbus, OPC-UA, S7, EtherNet/IP) jusqu'au cloud.
-  \item Banc d'essai de la chaîne compteur $\rightarrow$ MQTT $\rightarrow$ edge : tests de coupure du broker, reconnexion et perte de données.
-\end{points}
-\outils{Mosquitto, Python (paho-mqtt), automates Siemens et Allen-Bradley, OPC-UA.}}
-
 \entree{Lévitateur magnétique analogique — rétro-ingénierie}{Projet personnel, 2026}{%
 \begin{points}
   \item Reconstruction de la boucle de commande d'un lévitateur sans microcontrôleur : capteurs Hall différentiels, correcteur PD à avance de phase,
         étage de puissance push-pull ; analyse du principe (théorème d'Earnshaw).
   \item Série de neuf vidéos animées et bibliothèque Python pour dessiner des schémas électroniques.
 \end{points}
-\outils{Python, Manim.} \href{https://github.com/NicolasPlata2004/Magnetic-Levitator}{\small[code]}}
+\outils{Python, Manim.} \href{https://github.com/NicolasPlata2004/Magnetic-Levitator}{\small\textcolor{navy}{\faGithub\,code}}}
 
 \entree{Contrôle thermique périopératoire}{Systèmes embarqués, UNAL}{%
 \begin{points}
@@ -162,6 +183,10 @@ KYMA est le groupe de recherche en capteurs, contrôle et intelligence artificie
 \begin{points}
   \item \textbf{Dispensateur « Fluxia »} : script paramétrique Fusion 360 (API Python) générant l'assemblage complet (9 composants, 37 paramètres).
   \item \textbf{Capteur capacitif} : conception de PCB en équipe ; \textbf{système d'irrigation} en logique numérique (Verilog).
+  \item \textbf{Pendule à hélice miniature} (équipe de 3) : PID réglé par lieu des racines puis réseau à retard, discrétisé par Tustin ;
+        marge de phase de 79,8° et dépassement nul en simulation.
+  \item \textbf{Sécurité réseau} (Réseaux informatiques, 2026) : ateliers OWASP Top 10 en laboratoire et contre-mesures — inventaire
+        des dépendances (SBOM) et analyse de vulnérabilités, vérification d'empreintes avant exécution, TLS, détection d'usurpation ARP.
   \item \textbf{Modèles proie–prédateur} : Lotka–Volterra vs modèle écologique réaliste, simulation MATLAB/Python et linéarisation.
   \item \textbf{Solveur de systèmes linéaires} (Python) : Gauss–Jordan, Gauss–Seidel et Cramer avec traces pas à pas.
 \end{points}}
@@ -194,12 +219,12 @@ Conception mécanique et prototypage par impression 3D ; automatisation de flux 
 \section{Compétences techniques}
 {\small
 \begin{tabularx}{\linewidth}{@{}>{\bfseries}p{3.6cm}X@{}}
-Automatique & Identification, représentation d'état, lieu des racines, Bode/Nyquist, PID, H$\infty$, MRAC, mode glissant, commande numérique. \\[2pt]
+Automatique & Identification, représentation d'état, lieu des racines, Bode/Nyquist, PID, correcteurs à avance/retard, H$\infty$, MRAC, mode glissant, commande numérique. \\[2pt]
 Simulation & MATLAB, Simulink (déploiement sur Arduino), Python (NumPy, SciPy, Matplotlib), LTspice, Proteus, Multisim. \\[2pt]
-Embarqué \& IoT & ESP32 / ESP32-C3, Arduino, PIC18F4550, C/C++, MQTT, Home Assistant, API REST, capteurs, KiCad (PCB). \\[2pt]
-Automatisme & Studio 5000 (ladder), automates émulés, OPC DA/UA, Modbus, jumeau numérique (Siemens NX), CADe SIMU, FluidSIM. \\[2pt]
-CAO / FAO & Fusion 360 (dont API Python), Inventor, AutoCAD, Mastercam, impression 3D, découpe laser. \\[2pt]
-Programmation & Python (Pandas, NumPy), MATLAB, C/C++, Java, JavaScript/TypeScript, React, Next.js, Firebase, Git, LaTeX. \\[2pt]
+Embarqué \& IoT & ESP32 / ESP32-C3, Arduino, PIC18F4550, C/C++, MQTT, Home Assistant, capteurs, KiCad (PCB). \\[2pt]
+Automatisme & Studio 5000 (ladder), automates émulés, OPC DA, jumeau numérique (Siemens NX), CADe SIMU, FluidSIM ; notions de Modbus, OPC-UA, S7. \\[2pt]
+CAO / FAO & Fusion 360, Inventor, AutoCAD, Mastercam, impression 3D, découpe laser. \\[2pt]
+Programmation et API & Python (Pandas, NumPy), MATLAB, C/C++, Java, JavaScript/TypeScript, React, Next.js ; API REST (serveur web sur ESP32, FastAPI), Firebase ; Git, LaTeX. \\[2pt]
 Communication & Manim, montage vidéo, rédaction technique en espagnol, français et anglais. \\
 \end{tabularx}}
 
@@ -208,24 +233,21 @@ Communication & Manim, montage vidéo, rédaction technique en espagnol, frança
 {\small
 \begin{tabularx}{\linewidth}{@{}>{\bfseries}p{3.6cm}X@{}}
 Espagnol & Langue maternelle ; excellente rédaction technique. \\
-Français & B2 — certification officielle ; études d'ingénieur en français. \\
-Anglais & C1 (certification B2) ; communication technique courante. \\
-Allemand & A1 — notions. \\
+Français & B2 — DELF B2 (France Éducation international, juin 2025) ; études d'ingénieur en français. \\
+Anglais & C1 — EF SET 64/100 (octobre 2025) ; communication technique courante. \\
 \end{tabularx}}
 
 % ======================= CERTIFICATIONS =======================
 \section{Cours et certifications}
 \begin{points}
-  \item Diplôme en développement d'applications mobiles — MinTIC / Universidad Tecnológica de Pereira.
-  \item Fondamentaux de la programmation et du développement logiciel — MinTIC.
-  \item Introduction à l'impression 3D métallique.
-  \item Introduction à Python pour l'analyse de données.
+  \item Cybersécurité et hacking éthique — BIG school (avril 2026) ; initiation au développement avec l'IA — BIG school (mars 2026).
+  \item Développement d'applications mobiles (MinTIC / U. Tecnológica de Pereira) ; fondamentaux de la programmation (MinTIC).
+  \item Introduction to 3D Printing with Metals (Coursera, University of Michigan) ; Python pour l'analyse de données (UNAL).
 \end{points}
 
 % ======================= DIVERS =======================
 \section{Centres d'intérêt et références}
 {\small
-\textbf{Intérêts :} vulgarisation scientifique, impression 3D et électronique, apprentissage des langues.\\
-\textbf{Références :} lettre de recommandation du Pr José Manuel Arroyo Osorio (Faculté d'ingénierie, UNAL) ; coordonnées sur demande.}
+\textbf{Intérêts :} vulgarisation scientifique, impression 3D, langues. \quad \textbf{Références :} Pr J. M. Arroyo Osorio (UNAL) ; sur demande.}
 
 \end{document}

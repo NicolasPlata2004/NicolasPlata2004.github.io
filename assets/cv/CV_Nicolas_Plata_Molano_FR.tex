@@ -1,6 +1,7 @@
 % =====================================================================
-%  CV — Nicolás Plata Molano · format une colonne (inspiré de sa « Hoja de vida »)
+%  CV synthèse (1 page) — Nicolás Plata Molano · format une colonne
 %  Compilation : pdflatex CV_Nicolas_Plata_Molano_FR.tex
+%  Version auditée le 05/10/2026 (ancienne version : _versions_anteriores/)
 % =====================================================================
 \documentclass[10pt,a4paper]{article}
 
@@ -16,6 +17,10 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage[expansion=false]{microtype}
 \usepackage{amssymb}
+\usepackage{fontawesome5}
+% \lien{icône}{url}{texte} : logo + texte en couleur, pour montrer que c'est cliquable
+\newcommand{\lien}[3]{\href{#2}{\textcolor{navy}{#1\,#3}}}
+\newcommand{\info}[2]{\textcolor{grey}{#1}\,#2}
 
 \definecolor{navy}{HTML}{1F3F6E}
 \definecolor{grey}{HTML}{5C6770}
@@ -24,15 +29,15 @@
 \pagestyle{empty}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{0pt}
-\linespread{1.03}
+\linespread{1.05}
 
 \titleformat{\section}{\color{navy}\large\bfseries}{}{0pt}{}[\vspace{1pt}{\color{rule}\titlerule[0.6pt]}]
-\titlespacing*{\section}{0pt}{6pt}{3pt}
+\titlespacing*{\section}{0pt}{7pt}{3pt}
 
 % \entree{Titre — rôle}{Lieu / dates}{texte}
 \newcommand{\entree}[3]{%
-  \textbf{#1}\hfill{\small\itshape #2}\par\vspace{0.5pt}
-  {\small #3}\par\vspace{3.5pt}}
+  \textbf{#1}\hfill{\small\itshape\color{grey} #2}\par\vspace{0.5pt}
+  {\small #3}\par\vspace{4pt}}
 
 \newcommand{\bati}{BaTiO\textsubscript{3}}
 
@@ -40,72 +45,69 @@
 
 % ======================= EN-TÊTE =======================
 \begin{center}
-  {\LARGE\bfseries NICOLÁS PLATA MOLANO}\\[2pt]
-  {\color{grey}Élève-ingénieur en double diplôme — IMT Atlantique (ASCY) · Universidad Nacional de Colombia}\\[3pt]
-  {\small \href{mailto:nicao511ng@gmail.com}{nicao511ng@gmail.com} \;|\; +33 7 45 57 71 66 \;|\; Nantes, France}\\[1pt]
-  {\small \href{https://www.linkedin.com/in/nicolas-plata-molano}{linkedin.com/in/nicolas-plata-molano} \;|\;
-  \href{https://github.com/NicolasPlata2004}{github.com/NicolasPlata2004} \;|\;
-  \href{https://nicolasplata2004.github.io}{\textbf{Portfolio : nicolasplata2004.github.io}}}
+  {\LARGE\bfseries NICOLÁS PLATA MOLANO}\\[3pt]
+  {\large\color{navy}\textbf{Stage ingénieur 2A — Automatique · Systèmes embarqués · Automatisation industrielle}}\\[2pt]
+  {\small\color{grey}4 à 5 mois à partir d'avril 2027 \;·\; France}\\[3pt]
+  {\small \lien{\faEnvelope}{mailto:nicao511ng@gmail.com}{nicao511ng@gmail.com} \quad \lien{\faPhone}{tel:+33745577166}{+33 7 45 57 71 66} \quad \lien{\faLinkedin}{https://www.linkedin.com/in/nicolas-plata-molano}{linkedin.com/in/nicolas-plata-molano} \quad \lien{\faGithub}{https://github.com/NicolasPlata2004}{github.com/NicolasPlata2004}}\\[2pt]
+  {\small \lien{\faGlobe}{https://nicolasplata2004.github.io}{\textbf{Portfolio avec vidéos des prototypes : nicolasplata2004.github.io}}}
 \end{center}
 \vspace{-4pt}
 {\color{rule}\rule{\linewidth}{0.8pt}}
-\vspace{2pt}
+\vspace{1pt}
 
-{\small\textbf{Recherche un stage de 2\textsuperscript{e} année} (4–5 mois dès avril 2027, ou 2–3 mois dès juin) en automatique,
-robotique, systèmes embarqués ou automatisation industrielle — Nantes en priorité, mobile dans toute la France.}
-
-% ======================= PROFIL =======================
-\section{Profil}
-{\small Élève-ingénieur en mécatronique, \textbf{5\textsuperscript{e} de ma promotion} (moyenne 4,4/5). J'identifie, commande et valide
-des systèmes sur du matériel réel : quatre lois de commande testées sur banc, un bras robotique 2R, un objet IoT sur ESP32 et une ligne
-pilotée par automate. En recherche (groupe KYMA), je travaille sur des capteurs piézoélectriques sans plomb (\bati).}
+{\small Élève-ingénieur en double diplôme IMT Atlantique – Universidad Nacional de Colombia, \textbf{5\textsuperscript{e} de ma promotion}
+en mécatronique. Je passe du modèle au matériel : j'identifie un procédé, je conçois sa loi de commande et je la valide sur banc,
+du microcontrôleur à l'automate.}
 
 % ======================= FORMATION =======================
 \section{Formation}
-\entree{IMT Atlantique — Diplôme d'ingénieur généraliste (FISE 2A), double diplôme}{Nantes, 2026–2028}{%
-Thématique ASCY : Automatique et Systèmes Cyber-physiques. Commande d'entreprise en cours : qualification d'une passerelle IoT industrielle
-(MQTT, Modbus, OPC-UA, S7) pour une startup incubée à l'école.}
+\entree{IMT Atlantique — Diplôme d'ingénieur (FISE), double diplôme}{Nantes, 2026–2028}{%
+Spécialisation \textbf{Automatique et systèmes cyber-physiques} : commande robuste, représentation d'état.}
 \entree{Universidad Nacional de Colombia — Ingénierie mécatronique}{Bogotá, 2021–2026}{%
-\textit{Moyenne :} \textbf{4,4 / 5} \;|\; \textbf{5\textsuperscript{e} de la promotion} \;|\; \textit{Cursus validé :} 73,7 \%.
-Moniteur académique ; formation en instrumentation industrielle, robotique et modélisation de systèmes dynamiques.}
-\entree{I.E. Camilo Torres Restrepo — Baccalauréat}{Aguazul, Casanare}{%
-Meilleure moyenne de l'établissement et score ICFES remarqué au niveau départemental.}
+\textbf{5\textsuperscript{e} de la promotion} (moyenne 4,4/5) \;·\; moniteur académique \;·\; commande, robotique, instrumentation industrielle.}
 
-% ======================= EXPÉRIENCE =======================
-\section{Recherche et projets}
-\entree{Groupe de recherche KYMA (UNAL) — Chercheur, capteurs et commande}{2024–présent}{%
-Projet \textit{Piezo} : synthèse et caractérisation du titanate de baryum (\bati) pour des capteurs piézoélectriques de force et de vibration
-sans plomb. Conception électronique pour l'acquisition de signaux et l'IoT, algorithmes de commande robuste.}
-\entree{Aéropendule — identification et quatre lois de commande}{Técnicas de Control, 2026}{%
-Modèle non linéaire identifié et validé sous Simulink (R\textsuperscript{2} = 0,943) ; PID, H$\infty$, MRAC et mode glissant déployés sur Arduino et comparés sur le banc réel.}
-\entree{Bras robotique 2R « ADANISS »}{Servomecanismos, 2026}{%
-Trajectoire polaire paramétrique, cinématique inverse, identification des moteurs (R\textsuperscript{2} > 0,99) et PID discret sur ESP32 ;
-carte électronique conçue et fabriquée par l'équipe.}
-\entree{ThermaLink-C3 — supervision IoT de climatisation}{2026}{%
-ESP32-C3 : détection de présence, température, clonage de trames IR et machine à états ; panneau web, \textbf{MQTT} et intégration
-Home Assistant ; PCB sous KiCad. Économie estimée : environ 29 \%.}
-\entree{Case Erector — automatisation industrielle}{Proyecto industrial, 2026}{%
-Formeuse de caisses à trois axes (20 caisses/min) programmée en ladder (Studio 5000) sur automate émulé, validée par jumeau numérique (OPC DA, Siemens NX).}
-\entree{UN Makerspace — Prototypage et IoT}{2023–présent}{%
-Conception mécanique et prototypage par impression 3D ; automatisation de flux de travail (n8n) pour la traçabilité des projets.}
-\entree{Contrôle thermique périopératoire — systèmes embarqués}{UNAL}{%
-Boucle PI sur microcontrôleur PIC18F4550 et traitement numérique du signal en temps réel.}
+% ======================= EXPÉRIENCE ET PROJETS =======================
+\section{Expérience et projets}
+\entree{Responsable technique — Qualification d'une passerelle IoT industrielle}{NEXERGY, Nantes · sept.–déc. 2026}{%
+Commande d'entreprise (équipe de 7) : valider la passerelle MultiEdge (MQTT, Modbus, OPC-UA, S7, BACnet) avant son déploiement ;
+architecture du banc d'essai (automates Siemens et Allen-Bradley), protocoles de test. Maquette MQTT : reconnexion sans perte d'énergie comptée après coupure
+du broker ; \textbf{faux pic de 12 311 kWh} détecté lors d'un faux reset $\rightarrow$ contrôle de plausibilité proposé.}
+\entree{Aéropendule — identification et comparaison de quatre lois de commande}{UNAL, 2026 · équipe de 4}{%
+Système non linéaire avec zone morte : modèle identifié et validé (\textbf{R\textsuperscript{2} = 0,943}, RMSE 3,4°). PID, H$\infty$, MRAC
+et mode glissant déployés depuis Simulink et comparés sur le banc réel : le PID tient la barre à \textbf{90°}, près de la saturation,
+et rejette les perturbations.}
+\entree{Case Erector — formeuse de caisses validée par jumeau numérique}{UNAL, 2026 · équipe de 5}{%
+Valider une machine trois axes sans le matériel : programme ladder sous Studio 5000 relié en OPC DA à un jumeau numérique
+Siemens NX, latence de communication compensée ; cycle validé à \textbf{20 caisses/min} avant mise en service.}
+\entree{ThermaLink-C3 — contrôleur de climatisation selon l'occupation}{Projet individuel, 2026}{%
+Les climatiseurs refroidissent des pièces vides : contrôleur ESP32-C3 (détection de présence, clonage des télécommandes IR, machine
+à états, MQTT/Home Assistant) sur un PCB conçu sous KiCad. Validé sur trois climatiseurs de marques différentes ;
+\textbf{économie projetée de 25 à 30 \%}.}
+\entree{ADANISS — bras robotique plan 2R}{UNAL, 2026 · équipe de 5}{%
+Faire tracer une courbe imposée : identification des moteurs (\textbf{R\textsuperscript{2} > 0,99}), cinématique inverse, PID discret
+sur ESP32 et visualisation temps réel à 60 Hz ; trajectoire validée sur le prototype.}
+\entree{SLOSH-G — expérience en vol parabolique (programme Parabole, CNES)}{Club SpaceCraft'IMT, 2026}{%
+À l'origine de la proposition : ballottement des ergols en micropesanteur dans l'A310 Zero-G, atténuation passive (chicanes)
+contre active (commande LQG sur centrale inertielle) ; dimensionnement et simulations LBM et éléments finis.}
+\entree{Groupe de recherche KYMA (UNAL) — capteurs piézoélectriques sans plomb}{Bogotá, 2024–présent}{%
+Simulations, dimensionnement et conception complète d'un \textbf{banc d'étalonnage} pour des capteurs en \bati,
+sous la direction de deux enseignants-chercheurs.}
 
 % ======================= COMPÉTENCES =======================
 \section{Compétences}
 {\small
-\textbf{Automatique :} identification, PID, H$\infty$, MRAC, mode glissant, MATLAB/Simulink (déploiement sur Arduino).\\
-\textbf{Embarqué \& IoT :} ESP32, Arduino, PIC18F4550, C/C++, MQTT, Home Assistant, KiCad, Proteus, LTspice.\\
-\textbf{Automatisme :} Studio 5000 (ladder), OPC, Modbus, jumeau numérique (Siemens NX), CADe SIMU, FluidSIM.\\
-\textbf{CAO / FAO :} Fusion 360, Inventor, AutoCAD, Mastercam, impression 3D.\\
-\textbf{Programmation :} Python (Pandas, NumPy, Matplotlib), MATLAB, C/C++, JavaScript/React, Git, LaTeX.\\
-\textbf{Vulgarisation :} animations scientifiques avec Manim ; fondateur du blog « El Éter ».}
+\begin{tabularx}{\linewidth}{@{}l X@{}}
+\textbf{Automatique} & Identification, PID, avance/retard, H$\infty$, MRAC, mode glissant ; MATLAB, Simulink (déploiement Arduino). \\
+\textbf{Automatisme \& IIoT} & Studio 5000 (ladder), OPC DA, MQTT, jumeau numérique (Siemens NX) ; notions de Modbus, OPC-UA et S7. \\
+\textbf{Embarqué} & C/C++, ESP32, Arduino, PIC18F4550, conception de PCB (KiCad). \\
+\textbf{Logiciel \& API} & Python (NumPy, Pandas), MATLAB, Git, LaTeX ; API REST (serveur web sur ESP32, FastAPI). \\
+\textbf{CAO} & Fusion 360, Inventor, impression 3D. \\
+\textbf{Langues} & Espagnol (langue maternelle) \;·\; \textbf{français B2 (DELF)} \;·\; \textbf{anglais C1 (EF SET)}. \\
+\end{tabularx}}
 
-% ======================= LANGUES ET CERTIFICATIONS =======================
-\section{Langues et certifications}
-{\small
-\textbf{Langues :} espagnol (langue maternelle) · anglais C1 (certification B2) · \textbf{français B2 (certification officielle)} · allemand A1.\\
-\textbf{Certifications :} Diplôme en développement d'applications mobiles (MinTIC / Universidad Tecnológica de Pereira) ; fondamentaux de la
-programmation et du développement logiciel (MinTIC) ; impression 3D métallique ; Python pour l'analyse de données.}
+% ======================= PLUS =======================
+\section{Plus}
+{\small Vulgarisation : série de neuf vidéos animées (Manim) expliquant la boucle de commande d'un lévitateur magnétique
+rétro-ingénié ; fondateur du blog scientifique « El Éter ».}
 
 \end{document}
